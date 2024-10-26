@@ -3,6 +3,9 @@ import "./Toggle.css";
 export const Toggle = ({ handleChange, isChecked }) => {
   return (
     <div className="toggle-container">
+      <h1 class="toggle-logo">
+        {isChecked ? "🌙" : "☀️"}
+      </h1>
       <input
         type="checkbox"
         id="check"

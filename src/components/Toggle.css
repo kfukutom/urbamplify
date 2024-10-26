@@ -4,6 +4,15 @@
   right: 2em;
 }
 
+.toggle-logo {
+  position: absolute; /* Allows manual positioning */
+  top: 0.56em; /* Vertical position */
+  right: 3em; /* Horizontal position */
+  font-size: 1.6em; /* Adjust size as needed */
+  z-index: 1; /* Ensure it sits above other elements if needed */
+  transition: 250ms ease-in-out;
+}
+
 .toggle {
   visibility: hidden;
 }
