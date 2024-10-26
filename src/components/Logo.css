@@ -1,0 +1,23 @@
+.logo-container {
+  position: absolute;
+  top: 2em;
+  left: 2em;
+  font-size: 25px;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-decoration: none;
+  background: linear-gradient(to right,
+  #CCC 50%, #d02cd6 50%, #f15282);
+  background-size: 200%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 0.5s ease-in-out;
+}
+
+li {
+  list-style-type: none;
+}
+
+.logo-container:hover {
+  background-position: -100%;
+}

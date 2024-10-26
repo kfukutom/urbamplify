@@ -7,7 +7,9 @@ export const Buttons = ({ isDark }) => {
         id="check"
         className={`button-19 ${isDark ? "dark-mode" : "light-mode"}`}
       >
-         Explore 🏙️
+        <a href="https://www.linkedin.com/in/narayan-aakash/">
+          Explore
+        </a>
       </button>
     </div>
   );
