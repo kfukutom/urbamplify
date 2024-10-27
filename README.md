@@ -48,10 +48,7 @@ For any inquiries, please contact [yourname@example.com](mailto:kfukutom@umich.e
 ### Tools Used
 
 - **React**: For building the user interface
-- **Leaflet**: For interactive maps
-- **Chart.js**: For creating charts and graphs
-- **Node.js**: For the backend server
-- **Express**: For handling server-side logic
+- **D3.js**: For creating charts and graphs
 - **MongoDB**: For the database
 
 ### Skills Learned
