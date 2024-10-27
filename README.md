@@ -1,4 +1,4 @@
-# Crime Dashboard
+# Crime Dashboard 🏙️
 
 Welcome to the Crime Dashboard project! This repository contains the code and resources for a web-based dashboard that visualizes crime data.
 
