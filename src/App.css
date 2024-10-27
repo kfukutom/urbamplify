@@ -50,3 +50,11 @@
   }
 }
 
+.michigan {
+  color: grey;
+  position: absolute;
+  bottom: 1em;
+  left: 1.15em;
+  font-size: 18px;
+}
+

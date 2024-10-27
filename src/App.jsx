@@ -12,7 +12,7 @@ export const App = () => {
   useEffect(() => {
     const typewriterElement = document.querySelector(".typewriter");
     if (typewriterElement) {
-      writeLoop(typewriterElement, ["@new-york-city 🍎 ", "@chicago-il 🐻", "@los-angeles 🌴", "more coming soon! 👀"]);
+      writeLoop(typewriterElement, ["@new-york-city 🍎 ", "@chicago-il 🐻", "@los-angeles-metro 🌴", "@detroit-mi ⚙️", "perhaps ... @ann-arbor? 〽️👀"]);
     }
   }, []);
 
@@ -25,6 +25,7 @@ export const App = () => {
       />
       <h1 className="title">urban data analytics for <span className="typewriter"></span><span className="cursor">|</span></h1>
       <Buttons isDark={isDark} handleChange={() => setIsDark(!isDark)}/>
+      <h1 className="michigan">license: @ken-fukutomi 〽️</h1>
     </div>
   );
 }
