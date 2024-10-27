@@ -28,9 +28,9 @@ Welcome to the Crime Dashboard project! This repository contains the code and re
 
 1. Start the development server:
   ```bash
-  npm start
+  npm run dev
   ```
-2. Open your browser and go to `http://localhost:3000`
+2. Open your browser and go to the provided local host server.
 
 ## Contributing
 
