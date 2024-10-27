@@ -58,3 +58,32 @@
   font-size: 18px;
 }
 
+.linkedin-btn {
+  position: absolute;
+  display: inline-flex;
+  bottom: 3.5em;
+  left: 1.55em;
+  width: 25px;
+  height: 25px;
+  text-decoration: none;
+  transition: ease-in-out;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='20' font-size='24'%3E🍏%3C/text%3E%3C/svg%3E") 16 16, auto;
+  list-style: none;
+  text-decoration: none;
+}
+
+.github-btn {
+  list-style: none;
+  display: inline-flex;
+  position: absolute;
+  bottom: 3.55em;
+  left: 3.5em;
+  width: 25px;
+  height: 25px;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='20' font-size='24'%3E🍏%3C/text%3E%3C/svg%3E") 16 16, auto;
+  text-decoration: none;
+}
+
+
+
+
