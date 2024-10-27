@@ -17,7 +17,7 @@ export const App = () => {
   useEffect(() => {
     const typewriterElement = document.querySelector(".typewriter");
     if (typewriterElement) {
-      writeLoop(typewriterElement, ["@new-york-city 🍎", "@chicago-il 🐻", "@los-angeles-metro 🌴", "@detroit-mi ⚙️", "perhaps ... @ann-arbor? 〽️👀", "\ndeveloping deployable, scalable models\noptimized for consumer-facing data dashboards"]);
+      writeLoop(typewriterElement, ["@new-york-city 🍎", "@chicago-il 🐻", "@los-angeles-metro 🌴", "@detroit-mi ⚙️", "perhaps ... @ann-arbor? 〽️👀", "\nplanners, architects,\nreal estate developers, and urban technologists."]);
     }
   }, []);
 
@@ -36,7 +36,7 @@ export const App = () => {
       <a href="https://github.com/kfukutom/Urban-Crime-Dashboard">
         <img src={GithubImage} className="github-btn" alt="github-icon"/>
       </a>
-      <h1 className="michigan">copyright © 2024 ken-fukutomi 〽️</h1>
+      <h1 className="michigan">copyright © 2024-fukutomi-ken 🔨</h1>
     </div>
   );
 }
