@@ -42,7 +42,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For any inquiries, please contact [yourname@example.com](mailto:kfukutom@umich.edu).
+For any inquiries, please contact [kfukutom@umich.edu](mailto:kfukutom@umich.edu).
 ## Tools and Skills
 
 ### Tools Used
