@@ -15,7 +15,7 @@ export async function writeLoop(element, phrases, baseSleepTime = 200) {
     let curWord = phrases[curPhraseIndex];
 
     // Typing effect
-    for (let i = 0; i < curWord.length; i++) {
+    for (let i = 0; i < curWord.length - 1; i++) {
       element.innerText = curWord.substring(0, i + 1);
       
       // Adjust typing speed: faster for some characters (e.g., vowels)
