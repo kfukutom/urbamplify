@@ -5,7 +5,7 @@ export const Logo = ({ handleChange, isChecked }) => {
     <div className="logo-container">
       <li>
         <a href="https://github.com/kfukutom">
-        /kfukutom
+        /kfukutom 🖥️
         </a>
       </li>
       <label htmlFor="check"></label>
