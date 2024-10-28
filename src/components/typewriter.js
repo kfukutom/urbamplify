@@ -12,6 +12,13 @@ export async function writeLoop(element, phrases, baseSleepTime = 200) {
   let curPhraseIndex = 0;
 
   while (true) {
+    if (curPhraseIndex == phrases.length-1) {
+      element.style.color = "#ffcb05";
+    }
+    else {
+      // Default Back to Color
+      element.style.color = ""; // default
+    }
     let curWord = phrases[curPhraseIndex];
 
     // Typing effect

@@ -17,7 +17,7 @@ export const App = () => {
   useEffect(() => {
     const typewriterElement = document.querySelector(".typewriter");
     if (typewriterElement) {
-      writeLoop(typewriterElement, ["@new-york-city 🗽 ", "@chicago-il 🍕 ", "@los-angeles-metro 🌆 ", "@detroit-mi ⚙️ ", "perhaps @ann-arbor? 〽️ ", "\nplanners, architects,\nand  `urban technologists` "]);
+      writeLoop(typewriterElement, ["@new-york-city 🗽 ", "@chicago-il 🍕 ", "@los-angeles-metro 🌆 ", "@detroit-mi ⚙️ ", "perhaps @ann-arbor? 〽️ ", "\nurban technologists. "]);
     }
   }, []);
 
@@ -41,4 +41,6 @@ export const App = () => {
   );
 }
 
+
+// let args: be parsed and it exists.
 export default App;
