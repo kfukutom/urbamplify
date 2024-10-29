@@ -1,5 +1,5 @@
-/* Main App Container */
-.App {
+/* Main About Container */
+.About {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -7,11 +7,11 @@
   justify-content: center;
   align-items: center;
   background-color: var(--background-color);
-  transition: background-color 0.5s ease;  
+  transition: background-color 0.5s ease;
 }
 
 /* Animation class to change background color */
-.App.hover-background {
+.About.hover-background {
   background: linear-gradient(135deg, #ff6f61, #f8e71c, #50e3c2);
   background-size: 200% 200%;
   animation: backgroundAnimation 3s ease infinite;
@@ -23,41 +23,15 @@
   100% { background-position: 0% 50%; }
 }
 
-
-/* Apply hover-background to .App when button is hovered */
-.App .btn-container:hover ~ .App,
-.App .button-19:hover ~ .App {
+/* Apply hover-background to .About when button is hovered */
+.About .btn-container:hover ~ .About,
+.About .button-19:hover ~ .About {
   background: var(--hover-background);
 }
 
-/* Title Styling */
-.title {
-  color: var(--primary-text-color);
+/* Toggle & Logo Styling */
+.Logo, .Toggle {
   margin-bottom: 20px;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-/* Typewriter and Cursor Animations */
-.typewriter {
-  color: var(--toggle-bg);
-  font-weight: bold;
-}
-
-.cursor {
-  color: var(--toggle-bg);
-  text-align: center;
-  animation: blink 1s linear infinite;
-  padding: 2.5px;
-}
-
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
 }
 
 /* Michigan Footer Text */
