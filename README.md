@@ -12,18 +12,14 @@ This project is my journey in learning **React Native**, **HTML/CSS**, and **Jav
 
 ## Current Progress
 
-As of **October 29, 2024**, I have successfully developed a simple and minimalistic landing page to welcome users to the project. In the coming months, I plan to integrate a robust relational database using either **SQLAce** or **Firebase Auth** to enhance the program's data handling capabilities.
+As of **October 29, 2024**, I have successfully developed a simple and minimalistic landing page to welcome users to the project. In the coming months, I plan to integrate a robust relational database using either **SQLAce** or **Firebase Auth** to enhance the program's data handling capabilities. I'm super excited to integrate my agent-based modeling script with some attachment to network-adjacent Networkx metrics to learn about how my agents possibly could be handled better in a `simulated` environment!! I'm super new to all of this so I'm excited to get right in to the process.
+
+Also, contributions are welcome! If you'd like to help improve this project, comment on any issues, feel free to open a pull request or reach out.
 
 ---
 
-## Contributing
-
-Contributions are welcome! If you'd like to help improve this project, feel free to open a pull request or reach out.
-
----
-
-## Product Deployment Status
+## Updates
 
 **Date**: 10/29/24
 
-![Landing Page GIF](./frontend_asset1.gif) <!-- Adjust the path if your GIF is located in a different folder -->
+![Landing Page GIF](./frontend_asset1.gif) 
