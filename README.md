@@ -1,59 +1,27 @@
-# Crime Dashboard 🏙️
+# Project Overview
 
-Welcome to the Crime Dashboard project! This repository contains the code and resources for a web-based dashboard that visualizes crime data.
+This project is my journey in learning **React Native**, **HTML/CSS**, and **JavaScript**, with a strong focus on creating an intuitive and efficient user experience. Key goals of this project include:
 
-## Features
+- Establishing a clear **Design Hierarchy** for intuitive navigation
+- Enhancing **User Interface (UI) Experience** for seamless interaction
+- Deploying a productive **Agent-Based Model** to simulate a crime-related environment
 
-- Interactive maps displaying crime hotspots
-- Filter crimes by type, date, and location
-- Charts and graphs for crime trends analysis
-- User-friendly interface
+---
 
-## Installation
+## Current Progress
 
-1. Clone the repository:
-  ```bash
-  git clone https://github.com/yourusername/crime-dashboard.git
-  ```
-2. Navigate to the project directory:
-  ```bash
-  cd crime-dashboard
-  ```
-3. Install dependencies:
-  ```bash
-  npm install
-  ```
+As of **October 29, 2024**, I have successfully developed a simple and minimalistic landing page to welcome users to the project. In the coming months, I plan to integrate a robust relational database using either **SQLAce** or **Firebase Auth** to enhance the program's data handling capabilities.
 
-## Usage
-
-1. Start the development server:
-  ```bash
-  npm run dev
-  ```
-2. Open your browser and go to the provided local host server.
+---
 
 ## Contributing
 
-We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING.md) for more details.
+Contributions are welcome! If you'd like to help improve this project, feel free to open a pull request or reach out.
 
-## License
+---
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+## Product Deployment Status
 
-## Contact
+**Date**: 10/29/24
 
-For any inquiries, please contact [kfukutom@umich.edu](mailto:kfukutom@umich.edu).
-## Tools and Skills
-
-### Tools Used
-
-- **React**: For building the user interface
-- **D3.js**: For creating charts and graphs
-- **MongoDB**: For the database
-
-### Skills Learned
-
-- **Front-End Web Development**: Enhanced my skills in building responsive and interactive web applications using React.
-- **Data Visualization**: Developed the ability to create clear and informative visualizations of complex data sets.
-- **Data Analytics**: Gained experience in analyzing crime data and extracting meaningful insights.
-- **Communication**: Improved my ability to present data analytics solutions and models in a way that is easily understood by a non-technical audience.
+![GIF of the Landing Page](#) <!-- Replace '#' with the link to your GIF -->
