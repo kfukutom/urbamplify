@@ -24,4 +24,4 @@ Contributions are welcome! If you'd like to help improve this project, feel free
 
 **Date**: 10/29/24
 
-![GIF of the Landing Page](#) <!-- Replace '#' with the link to your GIF -->
+![Landing Page GIF](./frontend_asset1.gif) <!-- Adjust the path if your GIF is located in a different folder -->
