@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Toggle } from './components/Toggle';
+import { Logo } from './components/Logo';
 import './App.css';
 
 import Home from './Home';
@@ -16,6 +17,7 @@ export const App = () => {
   return (
     <div data-theme={isDark ? "dark" : "light"} className="App">
       {/* Toggle Button to switch theme */}
+      <Logo />
       <Toggle isChecked={isDark} handleChange={handleChange} />
 
       {/* Routes for Page Switching */}

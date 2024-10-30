@@ -1,78 +1,51 @@
-/* Main About Container */
-.About {
-  width: 100%;
-  height: 100vh;
+.about-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-color: var(--background-color);
-  transition: background-color 0.5s ease;
+  justify-content: space-between;
 }
 
-/* Animation class to change background color */
-.About.hover-background {
-  background: linear-gradient(135deg, #ff6f61, #f8e71c, #50e3c2);
-  background-size: 200% 200%;
-  animation: backgroundAnimation 3s ease infinite;
+.left-content h1 {
+  font-size: 8em;
+  line-height: 1.2;
+  font-weight: bold;
+  position: absolute;
+  top: 0.65em;
+  left: 0.32em;
 }
 
-@keyframes backgroundAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.highlight {
+  color: #3b57ff;
+}
+.Opposing{
+  color: var(--primary-text-color);
 }
 
-/* Apply hover-background to .About when button is hovered */
-.About .btn-container:hover ~ .About,
-.About .button-19:hover ~ .About {
-  background: var(--hover-background);
+.right-content {
+  max-width: 900px;
+  text-align: left;
 }
 
-/* Toggle & Logo Styling */
-.Logo, .Toggle {
+.right-content p {
+  font-size: 1.25em;
+  line-height: 1.5;
+  color: var(--primary-text-color);
   margin-bottom: 20px;
-}
-
-/* Michigan Footer Text */
-.michigan {
-  color: grey;
   position: absolute;
-  bottom: 1em;
-  left: 1.15em;
-  font-size: 18px;
+  left: 37em;
+  top: 7.5em;
 }
 
-/* LinkedIn Button */
-.linkedin-btn {
-  position: absolute;
-  display: inline-flex;
-  bottom: 3.1em;
-  left: 1.55em;
-  width: 25px;
-  height: 25px;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='20' font-size='24'%3E🍏%3C/text%3E%3C/svg%3E") 16 16, auto;
-  transition: filter 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+.demo-button {
+  background-color: #3b57ff;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.linkedin-btn:hover {
-  filter: brightness(1.1);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* GitHub Button */
-.github-btn {
-  border-radius: 100px;
-  display: inline-flex;
-  position: absolute;
-  bottom: 2.95em;
-  left: 3.5em;
-  width: 30px;
-  height: 30px;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='20' font-size='24'%3E🍏%3C/text%3E%3C/svg%3E") 16 16, auto;
-}
-
-.github-btn:hover {
-  filter: brightness(1.1);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+.demo-button:hover {
+  background-color: #3549e6; /* Slightly darker blue on hover */
 }

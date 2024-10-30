@@ -35,7 +35,6 @@ export const Home = () => {
 
   return (
     <div className="App" data-theme={isDark ? "dark" : "light"}>
-      <Logo />
       <h1 className="title">
         urban data analytics for <span className="typewriter"></span><span className="cursor">|</span>
       </h1>
