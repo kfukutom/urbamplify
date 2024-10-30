@@ -5,11 +5,11 @@
 }
 
 .toggle-logo {
-  position: absolute; /* Allows manual positioning */
+  position: absolute; 
   top: 0.56em; /* Vertical position */
-  right: 3em; /* Horizontal position */
+  right: 1em; /* Horizontal position */
   font-size: 1.6em; /* Adjust size as needed */
-  z-index: 1; /* Ensure it sits above other elements if needed */
+  z-index: 1; 
   transition: 250ms ease-in-out;
 }
 

@@ -41,4 +41,10 @@ html {
   --toggle-fg: #00a6ff;
   --michigan-yellow: #ffcb05;
   --michigan-blue: #00274c;
+  --demo-color1: rgb(248, 248, 197);
+  --bg-about1: #e8e8e8;
+}
+[data-theme="dark"]{
+  --demo-color2: rgb(61, 52, 52);
+  --bg-about2: #2c2c2c;
 }

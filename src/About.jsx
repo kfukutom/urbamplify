@@ -1,16 +1,46 @@
 import React from 'react';
 import './About.css';
 
-export const About = () => {
+export const About = ({ isDark }) => {
   return (
-    <div className="about-container">
-      <div className="left-content">
-        <h1><span className="highlight">Fund more.</span><br /><span className="Opposing">Build More<span/></span></h1>
-      </div>
-      <div className="right-content">
-        <p>An AI-enabled platform capable of performing market-research and conducting community surveys to help local, small businesses get a head start.</p>
-        <button className="demo-button">Book a demo</button>
-      </div>
+    <div className="AboutPage" data-theme={isDark ? "dark" : "light"}>
+      <div className="spacer"></div> 
+      <section className="about-container">
+        <div className="left-content">
+          <h1>
+            <span className="highlight">Fund more</span>
+            <br />
+            <span className="Opposing">Build More.</span>
+          </h1>
+        </div>
+        <div className="right-content">
+          <p>
+            <span className="title-p">Urbamplify&nbsp;</span>
+            serves as a tool to help businesses amplify their reach, and effectively fund their projects.
+            I wanted to establish a product that helps businesses grow and reach their full potential amidst
+            our ever-expanding <span className="urbantech">urban environments</span>.
+          </p>
+          <button className="demo-button">Book a demo</button>
+        </div>
+      </section>
+
+      <section className="about-ken">
+        <h1 className="UT">
+          Product's Focus
+        </h1>
+      </section>
+
+      <section className="product-demo">
+        <h1 className="UT_2">
+          Urbamplify in Action (Product Demo)
+        </h1>
+      </section>
+
+      <section className="blog">
+        <h1>
+          Blog
+        </h1>
+      </section>
     </div>
   );
 };
