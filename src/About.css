@@ -1,78 +1,112 @@
-/* Main About Container */
-.About {
+body {
+  margin: 0;
+  padding: 0;
+}
+
+section {
   width: 100%;
-  height: 100vh;
+  padding: 40px 20px; /* Consistent padding */
+  box-sizing: border-box;
+}
+
+.about-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--background-color);
-  transition: background-color 0.5s ease;
+  justify-content: flex-start;
+  min-height: 400px;
+  opacity: 0;
+  animation: fadeInContainer 1s ease forwards;
+  margin-top: 1250px;
 }
 
-/* Animation class to change background color */
-.About.hover-background {
-  background: linear-gradient(135deg, #ff6f61, #f8e71c, #50e3c2);
-  background-size: 200% 200%;
-  animation: backgroundAnimation 3s ease infinite;
+@keyframes fadeInContainer {
+  to { opacity: 1; }
 }
 
-@keyframes backgroundAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.left-content h1 {
+  font-size: 8em;
+  line-height: 1.2;
+  font-weight: bold;
+  margin: 0;
 }
 
-/* Apply hover-background to .About when button is hovered */
-.About .btn-container:hover ~ .About,
-.About .button-19:hover ~ .About {
-  background: var(--hover-background);
+.highlight {
+  color: #3b57ff;
 }
 
-/* Toggle & Logo Styling */
-.Logo, .Toggle {
-  margin-bottom: 20px;
+.Opposing {
+  color: var(--primary-text-color);
+  transition: 0.3s smooth;
 }
 
-/* Michigan Footer Text */
-.michigan {
-  color: grey;
-  position: absolute;
-  bottom: 1em;
-  left: 1.15em;
-  font-size: 18px;
+.right-content {
+  text-align: left;
+  max-width: 50%; 
+  padding-top: 70px; 
+  padding-left: 50px;
+  padding-right: 0px;
 }
 
-/* LinkedIn Button */
-.linkedin-btn {
-  position: absolute;
-  display: inline-flex;
-  bottom: 3.1em;
-  left: 1.55em;
-  width: 25px;
-  height: 25px;
+.right-content p {
+  font-size: 1.5em;
+  line-height: 1.5;
+  color: var(--primary-text-color);
+}
+
+.demo-button {
+  background-color: #3b57ff;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.34em;
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='20' font-size='24'%3E🍏%3C/text%3E%3C/svg%3E") 16 16, auto;
-  transition: filter 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: background-color 0.3s ease;
+  margin-top: 22px; 
 }
 
-.linkedin-btn:hover {
-  filter: brightness(1.1);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+.demo-button:hover {
+  background-color: #3549e6; /* Slightly darker blue on hover */
 }
 
-/* GitHub Button */
-.github-btn {
-  border-radius: 100px;
-  display: inline-flex;
-  position: absolute;
-  bottom: 2.95em;
-  left: 3.5em;
-  width: 30px;
-  height: 30px;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='20' font-size='24'%3E🍏%3C/text%3E%3C/svg%3E") 16 16, auto;
+.title-p { 
+  font-weight: bold; 
+  color: var(--demo-color1);
+  transition: 0.3s ease;
 }
 
-.github-btn:hover {
-  filter: brightness(1.1);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+.urbantech {
+  font-weight: bold;
+  color: var(--demo-color1);
+  transition: 0.3s ease;
+}
+
+.App {
+  transition: background-color 0.3s ease;
+}
+
+.about-ken {
+  width: 100%;
+  height: 35vh;
+  display: flex;
+  background-color: #000038;
+  box-sizing: border-box;
+  padding: 40px 20px;
+  margin: 0 auto;
+}
+
+.UT {
+  color: white;
+  display: flex;
+  justify-content: left;
+  padding-left: 0px; 
+  height: 50vh;
+}
+
+.product-demo {
+  padding: 40px 20px;
+  height: 150vh;
+}
+
+.blog {
+  background-color: #4A4AAC;
 }
