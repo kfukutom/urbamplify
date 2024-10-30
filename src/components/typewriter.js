@@ -45,7 +45,7 @@ export async function writeLoop(element, phrases, baseSleepTime = 200) {
       await sleep(baseSleepTime / 3.85);
     }
 
-    await sleep(baseSleepTime * 4);
+    await sleep(baseSleepTime * 6);
 
     // Move to the next phrase or loop back to the start
     if (curPhraseIndex === phrases.length - 1) {
