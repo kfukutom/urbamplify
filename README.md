@@ -23,3 +23,7 @@ Also, contributions are welcome! If you'd like to help improve this project, com
 **Date**: 10/29/24
 
 ![Landing Page GIF](./frontend_asset1.gif) 
+
+**Date** 10/30/24 ~ While preparing for my Discrete Math exam, I discovered a solution to improve the light-toggle functionality. Gained valuable insights into React's DOM client handling.
+
+![Updated Page GIF](./demo/demo-10-30-24.gif)
