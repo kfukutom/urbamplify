@@ -1,4 +1,4 @@
-# Project Overview
+# Orientation & Onboarding
 
 This project is my journey in learning **React Native**, **HTML/CSS**, and **JavaScript**, with a strong focus on creating an intuitive and efficient user experience. Key goals of this project include:
 
