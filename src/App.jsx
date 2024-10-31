@@ -28,6 +28,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home isDark={isDark} handleChange={handleChange} />} />
         <Route path="/about" element={<About isDark={isDark} handleChange={handleChange}/>} />
+        <Route path="/login" element={<Home isDark={isDark} handleChange={handleChange} />} />
       </Routes>
     </div>
   );

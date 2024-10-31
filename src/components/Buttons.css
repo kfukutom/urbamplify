@@ -1,8 +1,8 @@
 .button-19 {
   appearance: button;
-  background-color: #3b57ff;
+  background-color: #3b52d0;
   border: solid transparent;
-  border-radius: 15px;
+  border-radius: 5px;
   border-width: 0 0 4px;
   box-sizing: border-box;
   color: #ffffff;
@@ -37,7 +37,7 @@
   background-clip: padding-box;
   background-color: #3b57ff;
   border: solid transparent;
-  border-radius: 16px;
+  border-radius: 5px;
   border-width: 0 0 4px;
   bottom: -4px;
   content: "";
@@ -54,7 +54,7 @@
 }
 
 .button-19:hover:not(:disabled) {
-  filter: brightness(1.1);
+  filter: brightness(0.2);
   -webkit-filter: brightness(1.1);
 }
 

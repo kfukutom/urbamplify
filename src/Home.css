@@ -1,4 +1,10 @@
 /* Main App Container */
+html {
+  background-color: var(--background-color) !important;
+  transition: background-color 0.5s ease;
+  overflow-y: scroll;
+}
+
 .Home {
   width: 100%;
   height: 100vh;
