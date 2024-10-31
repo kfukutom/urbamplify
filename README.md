@@ -21,6 +21,9 @@ As of **October 29, 2024**, I have successfully developed a simple and minimalis
 
 ![Landing Page GIF](./frontend_asset1.gif) 
 
-**Date** 10/30/24 ~ While preparing for my Discrete Math exam, I discovered a solution to improve the light-toggle functionality. Gained valuable insights into React's DOM client handling. About to start work on the log-in portal for the free demo 💪 As of now, I'm planning on doing a simple login interface, utilizing NextAuth, Prisma, MongoDB, and for the front-end, I'll be using some neat TaildwindCSS to try that out!
+**Date** 10/30+31/24 ~ While preparing for my Discrete Math exam, I discovered a solution to improve the light-toggle functionality. Gained valuable insights into React's DOM client handling. About to start work on the log-in portal for the free demo 💪 As of now, I'm planning on doing a simple login interface, utilizing NextAuth, Prisma, MongoDB, and for the front-end, I'll be using some neat TaildwindCSS to try that out!
 
 ![Updated Page GIF](./demo/demo-10-30-24.gif)
+![Simple Login UI](./demo/demo-10-31-24.gif)
+
+
