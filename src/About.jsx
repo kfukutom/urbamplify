@@ -1,7 +1,18 @@
 import React from 'react';
-import './About.css';
+import { useNavigate } from 'react-router-dom';
+ import './About.css';
 
 export const About = ({ isDark }) => {
+  const navigate = useNavigate();
+
+  const handleNavigateToLogIn = () => {
+    navigate('/login');
+  }
+
+  const handleNavigateToTry = () => {
+    navigate('/product-trial');
+  }
+
   return (
     <div className="AboutPage" data-theme={isDark ? "dark" : "light"}>
       <div className="spacer"></div> 
@@ -20,7 +31,12 @@ export const About = ({ isDark }) => {
             I wanted to establish a product that helps businesses grow and reach their full potential amidst
             our ever-expanding <span className="urbantech">urban environments</span>.
           </p>
-          <button className="demo-button">Book a demo</button>
+          <button className="demo-button" onClick={handleNavigateToLogIn}>
+            Book a demo
+          </button>
+          <button className="try-button" onClick={handleNavigateToTry}>
+            Try for free
+          </button>
         </div>
       </section>
 
