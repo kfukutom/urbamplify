@@ -7,7 +7,7 @@ This project is my journey in learning **React Native**, **HTML/CSS**, and **Jav
 - Deploying a productive **Agent-Based Model** to simulate a crime-related environment
 - Blend passion for products that connect tangible and intangible, digital spaces.
 - Learn **D3.js** / front-end stuff
-- Master **React/React Native** and become proficient in front-end development.
+- Master **React/React Native/Tailwind CSS** and become proficient in front-end development.
 
 Also, contributions are welcome! If you'd like to help improve this project, comment on any issues, feel free to open a pull request or reach out.
 
