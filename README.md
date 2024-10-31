@@ -6,7 +6,7 @@ This project is my journey in learning **React Native**, **HTML/CSS**, and **Jav
 - Enhancing **User Interface (UI) Experience** for seamless interaction
 - Deploying a productive **Agent-Based Model** to simulate a crime-related environment
 - Blend passion for products that connect tangible and intangible, digital spaces.
-- Learn **D3.js** / front-end stuff
+- Learn **D3.js**, along with implementing a MaplyAPI powered map.
 - Master **React/React Native/Tailwind CSS** and become proficient in front-end development.
 
 Also, contributions are welcome! If you'd like to help improve this project, comment on any issues, feel free to open a pull request or reach out.
