@@ -4,7 +4,7 @@ This project is my journey in learning **React Native**, **HTML/CSS**, and **Jav
 
 - Establishing a clear **Design Hierarchy** for intuitive navigation
 - Enhancing **User Interface (UI) Experience** for seamless interaction
-- Deploying a productive **Agent-Based Model** to simulate a crime-related environment
+- Deploying a productive **Agent-Based Model** to simulate a New York City borough environment
 - Blend passion for products that connect tangible and intangible, digital spaces.
 - Learn **D3.js**, along with implementing a MaplyAPI powered map.
 - Master **React/React Native/Tailwind CSS** and become proficient in front-end development.
