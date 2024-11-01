@@ -10,7 +10,7 @@ This project is my journey in learning **React Native**, **HTML/CSS**, and **Jav
 - Master **React/React Native/Tailwind CSS** and become proficient in front-end development.
 
 Project Premise ~
-I wanted to work on a product that defines `urban tech` for myself. Using agent-based modeling and advanced spatial analytics with Python's NetworkX and OSMnx libraries, our platform evaluates key factors—like local infrastructure, economic conditions, and demographic data—to generate a unique livelihood score for each area. Users can input financial details to estimate potential returns, helping them make data-driven decisions for successful business ventures in the right neighborhoods. And for the sake of the scope of the project, I'm narrowing it down to the attributes of Manhattan/New York City in their respective buroughs.
+I wanted to work on a product that defines `urban tech` for myself. Using agent-based modeling and advanced spatial analytics with Python's NetworkX and OSMnx libraries, our platform evaluates key factors—like local infrastructure, economic conditions, and demographic data—to generate a unique livelihood score for each area. Users can input financial details to estimate potential returns, helping them make data-driven decisions for successful business ventures in the right neighborhoods. And for the sake of the scope of the project, I'm narrowing it down to the attributes of Manhattan/New York City in their respective boroughs.
 
 Also, contributions are welcome! If you'd like to help improve this project, comment on any issues, feel free to open a pull request or reach out.
 
