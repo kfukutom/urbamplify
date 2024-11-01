@@ -1,6 +1,5 @@
 # Orientation & Onboarding
-Developed w/
-[![My Skills](https://skillicons.dev/icons?i=js,html,css,wasm)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=js,html,css,react)](https://skillicons.dev)
 
 This project is my journey in learning software development fundamentals whilst applying computational social science programming tools! Some key goals of this project include:
 
