@@ -30,4 +30,5 @@ As of **October 29, 2024**, I have successfully developed a simple and minimalis
 ![Updated Page GIF](./demo/demo-10-30-24.gif)
 ![Simple Login UI](./demo/demo-10-31-24.gif)
 
+**Date** 11/03/24 ~ Scrap the concept of using NextAuth, Prisma, MongoDB; instead, let's work with a Firebase Backend. I believe it's good for our current, potential size of a required database, and it fits some of the criteria to develop a smooth log-in authentication interface. 
 
