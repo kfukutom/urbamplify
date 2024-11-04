@@ -68,11 +68,12 @@ html {
 
 /* Michigan Footer Text */
 .michigan {
-  color: grey;
+  color: rgb(117, 117, 117);
   position: absolute;
   bottom: 1em;
   left: 1.15em;
   font-size: 18px;
+  text-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px;
 }
 
 /* LinkedIn Button */

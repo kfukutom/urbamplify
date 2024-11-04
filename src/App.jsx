@@ -6,6 +6,7 @@ import './App.css';
 
 import Home from './Home';
 import About from './About';
+import Auth from './Auth';
 
 export const App = () => {
   const [isDark, setIsDark] = useState(() => {
@@ -28,7 +29,9 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home isDark={isDark} handleChange={handleChange} />} />
         <Route path="/about" element={<About isDark={isDark} handleChange={handleChange}/>} />
-        <Route path="/login" element={<Home isDark={isDark} handleChange={handleChange} />} />
+        <Route path="/auth" element={<Auth isDark={isDark} handleChange={handleChange} />} />
+        <Route path="/signup" element={<Auth isDark={isDark} handleChange={handleChange} />} />
+        <Route path="/forgot-password" element={<Auth isDark={isDark} handleChange={handleChange} />} />
       </Routes>
     </div>
   );
