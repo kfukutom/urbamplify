@@ -29,6 +29,10 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+.login-container[data-theme="dark"] {
+  box-shadow: 0 8px 15px #9284c8;
+}
+
 .login-container .form-title {
   text-align: center;
   font-size: 1.37rem;
@@ -203,4 +207,32 @@ body {
 .login-container a:hover {
   text-decoration: underline;
   color: #3b57ff;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+ 
+.error-message {
+  color: #ff4d4f;
+  border: 1px solid #ff4d4f;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.shake {
+  animation: shake 0.5s ease;
 }
