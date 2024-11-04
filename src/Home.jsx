@@ -19,10 +19,10 @@ export const Home = ({ isDark }) => {
     if (typewriterElement) {
       writeLoop(typewriterElement, [
         "@new-york-city 🗽 ",
-        "@chicago-il 🍕 ",
-        "@los-angeles-metro 🌆 ",
-        "@detroit-mi ⚙️ ",
-        "perhaps @ann-arbor? 〽️ ",
+        "@local-businesses 🏢 ",
+        "@community-orgs 🌆 ",
+        "@the-city ⚙️ ",
+        "entrepreneurs 〽️ ",
         "\nurban technologists. "
       ]);
     }

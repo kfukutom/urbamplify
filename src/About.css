@@ -1,57 +1,60 @@
 /* Global Reset */
-/* ADDED: Consistent Styling */
+/* Consistent Styling */
+/* Developed by: Ken Matthew Fukutomi */
+
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /* Section Styling */
 section {
   width: 100%;
-  padding: 40px 20px; /* Consistent padding */
+  padding: 40px 20px;
   box-sizing: border-box;
 }
 
 /* About Container */
 .about-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   min-height: 400px;
   opacity: 0;
-  animation: fadeInContainer 1s ease forwards;
-  margin-top: 1250px;
+  animation: fadeInContainer 1.2s ease-in-out forwards;
+  margin-top: 1350px; 
 }
 
-/* Fade-in Animation */
+/* Keyframes fadeInContainer Animation */
 @keyframes fadeInContainer {
   to { opacity: 1; }
 }
 
-/* Left Content Styling */
+/* Content Styling */
 .left-content h1 {
-  font-size: 8em; /* Large font for desktop */
+  font-size: 6.5em;
   line-height: 1.2;
   font-weight: bold;
-  margin: 0;
+  margin: 30px;
+  color: var(--primary-text-color);
 }
 
 .highlight {
   color: #3b57ff;
 }
 
-/* Opposing Text */
-.Opposing {
+.opposing {
   color: var(--primary-text-color);
-  transition: 0.3s ease;
+  transition: color 0.3s ease-in-out;
 }
 
-/* Right Content Styling */
 .right-content {
+  max-width: 55%;
+  padding-top: 40px;
+  padding-right: 60px;
   text-align: left;
-  max-width: 50%;
-  padding-top: 70px;
-  padding-left: 50px;
-  padding-right: 0px;
 }
 
 .right-content p {
@@ -60,28 +63,20 @@ section {
   color: var(--primary-text-color);
 }
 
-/* Demo Button */
-.demo-button,
-.try-button { /* Combined selector to apply same styles */
+/* Button Styling */
+.demo-button {
   background-color: #3b57ff;
   color: #ffffff;
   padding: 12px 24px;
   border: none;
   border-radius: 5px;
-  font-size: 1.34em;
+  font-size: 1.2em;
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='20' font-size='24'%3E🍏%3C/text%3E%3C/svg%3E") 16 16, auto;
-  transition: background-color 0.3s ease;
-  margin-top: 22px;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px;
 }
 
-.try-button {
-  margin-left: 10px;
-}
-
-/* Element Hovering Component */
-
-.demo-button:hover,
-.try-button:hover {
+.demo-button:hover {
   background-color: #3549e6;
 }
 
@@ -89,75 +84,115 @@ section {
 .title-p, .urbantech {
   font-weight: bold;
   color: var(--demo-color1);
-  transition: 0.3s ease;
+  transition: color 0.3s ease-in-out;
 }
 
 /* App Wrapper */
-.App {
-  transition: background-color 0.3s ease;
+.app {
+  transition: background-color 0.3s ease-in-out;
 }
 
 /* About Ken Section */
 .about-ken {
-  width: 100%;
-  height: 35vh;
   display: flex;
+  align-items: center;
   background-color: #000038;
-  box-sizing: border-box;
   padding: 40px 20px;
-  margin: 0 auto;
+  height: 40vh;
+  animation: fadeInContainer 1.8s ease-in-out forwards;
 }
 
-/* Urban Technology Section */
-.UT {
+.ut-header {
   color: white;
-  display: flex;
-  justify-content: left;
-  padding-left: 0px;
-  height: 50vh;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 30px;
+}
+.ut {
+  color: #3b57ff;
+  text-align: left;
 }
 
 /* Product Demo Section */
 .product-demo {
   padding: 40px 20px;
-  height: 150vh;
+  height: 100vh;
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease-in-out;
 }
 
-.blog {
-  background-color: #4A4AAC;
+/* Workflow Section */
+.workflow-div {
+  background-color: #000038;
+  min-height: 50vh;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.workflow-header {
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.workflow-sub {
+  font-size: 1.3em;
+  color: rgb(248, 248, 197);
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.workflow-hr {
+  width: 45%;
+  margin: 20px auto;
+  border: 1px solid rgb(192, 226, 254);
+}
+
+/* Video Container */
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Footer Styling */
+.footer-text {
+  font-size: 1em;
+  color: var(--primary-text-color);
+  text-align: center;
+  margin-top: 20px;
 }
 
 /* Responsive Adjustments */
-/* Adjustments for Devices ~ iOS, Android, Minimized Tabs */
 @media (max-width: 1024px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .left-content h1 {
+    font-size: 4.5em;
+  }
+  
   .right-content {
     max-width: 100%;
-  }
-
-  .left-content h1 {
-    font-size: 6em;
   }
 }
 
 @media (max-width: 768px) {
-  .about-container,
-  .about-ken,
-  .UT,
-  .product-demo {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .left-content h1 {
-    font-size: 4em; 
+    font-size: 2.5em;
   }
 
   .right-content p {
-    font-size: 1.3em;
+    font-size: 1em;
   }
 
   .demo-button {
-    font-size: 1em; 
+    font-size: 1em;
+    padding: 10px 18px;
   }
 }
 
@@ -171,11 +206,23 @@ section {
   }
 
   .about-container {
-    margin-top: 600px; 
+    margin-top: 50px;
   }
-
+  
   .demo-button {
     font-size: 0.9em;
-    padding: 10px 18px; 
+    padding: 8px 16px;
   }
+}
+
+/* Footer Tag Elements */
+.footer-lock {
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  background-color: #000038;
+  color: #ffffff;
+  font-size: 1em;
+  z-index: 1000;
 }
