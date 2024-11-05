@@ -20,10 +20,9 @@ const Auth = ({ isDark }) => {
       navigate("/dashboard");
     } catch (err) {
       setError("Failed to log in. Please check your credentials.");
-      setShake(true); // Trigger shake effect
+      setShake(true); 
       console.error(err);
-
-      // Remove shake class after animation duration to allow re-triggering
+      
       setTimeout(() => setShake(false), 500);
     }
   };
