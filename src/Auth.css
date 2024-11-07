@@ -74,7 +74,7 @@ body {
   justify-content: center;
   background: #f9f8ff;
   border: 1px solid #d5cbff;
-  transition: 0.3s ease;
+  transition: 0.5 ease;
   color: #3b57ff;
 }
 
@@ -129,7 +129,7 @@ body {
   border-radius: 0.31rem;
   border: 1px solid #bfb3f2;
   padding: 0px 1.25rem 0 3.12rem;
-  transition: 0.2s ease;
+  transition: 0.5s ease;
   background-color: #f9f9fb; 
   color: #333;
 }
@@ -151,7 +151,7 @@ body {
   color: #a395e0;
   align-items: center;
   transform: translateY(-50%);
-  transition: 0.2s ease;
+  transition: 0.5s ease;
 }
 
 .login-form .input-wrapper i:not(.eye-icon) {
@@ -198,7 +198,7 @@ body {
   margin-top: 2.19rem;
   border-radius: 0.31rem;
   background: #3b57ff;
-  transition: 0.3s ease;
+  transition: 0.5s ease;
 }
 
 .login-form .login-button:hover {
@@ -229,22 +229,21 @@ body {
     transform: translateX(0);
   }
   25% {
-    transform: translateX(-5px);
+    transform: translateX(-2.5px);
   }
   50% {
-    transform: translateX(5px);
+    transform: translateX(2.5px);
   }
   75% {
-    transform: translateX(-5px);
+    transform: translateX(-2.5px);
   }
 }
  
 .error-message {
   color: #ce3336;
-  border: 1px solid #ce3336;
-  padding: 0.5rem;
+  padding: 0.1rem;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.4rem;
   font-size: 0.9rem;
 }
 

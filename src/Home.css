@@ -16,7 +16,6 @@ html {
   transition: background-color 0.5s ease;  
 }
 
-/* Animation class to change background color */
 .Home.hover-background {
   background: linear-gradient(135deg, #ff6f61, #f8e71c, #50e3c2);
   background-size: 200% 200%;
@@ -93,7 +92,7 @@ html {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* GitHub Button */
+/* GitHub Button  */
 .github-btn {
   border-radius: 100px;
   display: inline-flex;

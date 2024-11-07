@@ -48,7 +48,7 @@ section {
 
 .opposing {
   color: var(--primary-text-color);
-  transition: color 0.3s ease-in-out;
+  transition: color 0.5s ease;
 }
 
 .right-content {
@@ -85,12 +85,12 @@ section {
 .title-p, .urbantech {
   font-weight: bold;
   color: var(--demo-color1);
-  transition: color 0.3s ease-in-out;
+  transition: color 0.5s ease;
 }
 
 /* App Wrapper */
 .app {
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.5s ease;
 }
 
 /* About Ken Section */
@@ -120,7 +120,7 @@ section {
   padding: 40px 20px;
   height: 100vh;
   background-color: var(--background-color);
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.5s ease;
 }
 
 /* Workflow Section */

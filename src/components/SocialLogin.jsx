@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import appleSvg from '../assets/apple.svg';
 import googleSvg from '../assets/google.svg';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const SocialLogin = () => {
   return (
@@ -11,7 +11,7 @@ const SocialLogin = () => {
         Google
       </button>
       <button className="social-button">
-        <img src={appleSvg} alt="Apple" style={styles.AppleIcon} />
+        <img src={appleSvg} alt="Apple" className="social-icon" style={styles.AppleIcon} />
         Apple
       </button>
     </div>

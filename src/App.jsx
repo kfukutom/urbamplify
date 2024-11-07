@@ -24,8 +24,8 @@ export const App = () => {
 
   return (
     <div data-theme={isDark ? "dark" : "light"} className="App"> 
-      <Logo />
-      <Toggle isChecked={isDark} handleChange={handleChange} />     
+    <Logo />
+    <Toggle isChecked={isDark} handleChange={handleChange} />     
       <Routes>
         <Route path="/" element={<Home isDark={isDark} handleChange={handleChange} />} />
         <Route path="/about" element={<About isDark={isDark} handleChange={handleChange}/>} />
