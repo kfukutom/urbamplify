@@ -27,7 +27,6 @@ As of **October 29, 2024**, I have successfully developed a simple and minimalis
 
 **Date** 10/30+31/24 ~ While preparing for my Discrete Math exam, I discovered a solution to improve the light-toggle functionality. Gained valuable insights into React's DOM client handling. About to start work on the log-in portal for the free demo 💪 As of now, I'm planning on doing a simple login interface, utilizing NextAuth, Prisma, MongoDB, and for the front-end, I'll be using some neat TaildwindCSS to try that out! (Production Time: 5hrs)
 
-![Updated Page GIF](./demo/demo-10-30-24.gif)
 ![Simple Login UI](./demo/demo-10-31-24.gif)
 
 **Date** 11/03/24 ~ Scrap the concept of using NextAuth, Prisma, MongoDB; instead, let's work with a Firebase Backend. I believe it's good for our current, potential size of a required database, and it fits some of the criteria to develop a smooth log-in authentication interface. So far, as of today, I was able to set up the interface for the log-in form. It was nice to get back to work, following some exams, but much of this was developed with simple React/Google-Fonts Tools/ and CSS/HTML styling tools. (Production Time: 3.5hrs)
@@ -35,3 +34,6 @@ As of **October 29, 2024**, I have successfully developed a simple and minimalis
 ![Login_Error_UI](./demo/demo-11-04-24.gif)
 
 **Date** 11/06/24 ~ Applied React Native, finished up the rendering for the loading screen animation.
+I've fixed up the Firebase Authentication and now GoogleAuthProvider is connected, and I'll begin to work on deploying the actual dashboard of this project.
+
+![Auth_provider](./demo/demo-11-07-24-revised.gif)
