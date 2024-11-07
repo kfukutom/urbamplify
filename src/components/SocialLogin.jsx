@@ -18,12 +18,19 @@ const SocialLogin = () => {
     setLoading(true);
     setTimeout(() => setLoading(false), 2000);
   }, []);
-
+  
+  // global const
+  let globalUsername;
   const googleNavigate = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      setTimeout(() => setLoading(false), 2000);
       navigate("/dashboard");
+      var user = auth.currentUser;
+      if (user) {
+        globalUsername = user.displayName;
+        localStorage.setItem('globalUsername', globalUsername);
+        console.log(`Username: ${user.displayName}`);
+      }
     } catch (err) {
       // Should never reach this statement.
       alert("Failed to log in with Google. Please try again.");

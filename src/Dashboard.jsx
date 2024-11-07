@@ -1,15 +1,25 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { StyleSheet } from 'react-native';
-import { RingLoader } from 'react-spinners'; // Ensure this is imported
-import { text } from 'd3';
+import { RingLoader } from 'react-spinners';
+import { getAuth } from 'firebase/auth';
 
-const Dashboard = ({ isDark }) => {
+const auth = getAuth();
+
+
+const Dashboard = ({ isDark, user }) => {
   const [loading, setLoading] = useState(false);
+  const [username, setUsername] = useState('');
 
   useEffect(() => {
     setLoading(true);
     setTimeout(() => setLoading(false), 3500);
+  }, []);
+
+  useEffect(() => {
+    const storedUsername = localStorage.getItem('globalUsername');
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
   }, []);
 
   return (
@@ -21,7 +31,7 @@ const Dashboard = ({ isDark }) => {
       <div className="dashboard-container" data-theme={isDark ? 'dark' : 'light'}>
         <h2 className="dashboard-title">Welcome to your dashboard</h2>
         <p className="dashboard-text">You have successfully logged in.</p>
-        <p>Are you ready?</p>
+        <p>Are you ready {username}?</p>
       </div>
     )
   );

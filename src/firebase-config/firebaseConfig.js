@@ -1,12 +1,9 @@
-// Import the functions you need from the SDKs you need
+// Import the functions you need from the SDKs
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCeq6FlBYcSiiwJ0yMvnzpTGsRtTK807wE",
   authDomain: "urbamplify.firebaseapp.com",
@@ -23,4 +20,15 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
-export { app, analytics, auth, googleProvider };
+// Function for Google Login
+function signInWithGoogle(navigate) {
+  signInWithPopup(auth, googleProvider)
+    .then((result) => {
+      console.log(`Username: ${user.displayName}`);
+    })
+    .catch((error) => {
+      console.error("Error during Google sign-in:", error);
+    });
+}
+
+export { app, analytics, auth, googleProvider, signInWithGoogle };

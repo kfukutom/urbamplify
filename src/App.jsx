@@ -38,7 +38,7 @@ export const App = () => {
         <Route path="/auth" element={<Auth isDark={isDark} handleChange={handleChange} />} />
         <Route path="/signup" element={<Auth isDark={isDark} handleChange={handleChange} />} />
         <Route path="/forgot-password" element={<Auth isDark={isDark} handleChange={handleChange} />} />
-        <Route path="/dashboard" element={<Dashboard isDark={isDark} />} />
+        <Route path="/dashboard" element={<Dashboard isDark={isDark} handleChange={handleChange} />} />
       </Routes>
     </div>
   );
