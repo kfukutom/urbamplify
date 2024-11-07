@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const InputField = ({ type, placeholder, icon, onChange }) => {
+const InputField = ({ type, placeholder, icon, onChange, error }) => {
   const [isPasswordShown, setIsPasswordShown] = useState(false);
 
   const handleChange = (e) => {
@@ -8,13 +8,13 @@ const InputField = ({ type, placeholder, icon, onChange }) => {
   };
 
   return (
-    <div className="input-wrapper">
+    <div className={`input-wrapper ${error ? 'error-outline' : ''}`}>
       <input
         type={isPasswordShown ? "text" : type}
         placeholder={placeholder}
-        className="input-field"
+        className={`input-field ${error ? 'input-error' : ''}`}
         required
-        onChange={handleChange} // Call onChange function when input changes
+        onChange={handleChange}
       />
       <i className="material-symbols-rounded">{icon}</i>
       {type === "password" && (

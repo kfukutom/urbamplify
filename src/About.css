@@ -24,7 +24,8 @@ section {
   min-height: 400px;
   opacity: 0;
   animation: fadeInContainer 1.2s ease-in-out forwards;
-  margin-top: 1350px; 
+  margin-top: 1330px; 
+  margin-bottom: 20px;
 }
 
 /* Keyframes fadeInContainer Animation */

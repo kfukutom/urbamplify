@@ -36,7 +36,7 @@ export const Home = ({ isDark }) => {
   return (
     <div className="Home" data-theme={isDark ? "dark" : "light"}>
       <h1 className="title">
-        urban data analytics for <span className="typewriter"></span><span className="cursor">|</span>
+        urban analytics platform for <span className="typewriter"></span><span className="cursor">|</span>
       </h1>
       <Buttons isDark={isDark} handleNavigate={handleNavigateToAbout} /> 
       <a href="https://www.linkedin.com/in/kensuke-f-210356202/">
