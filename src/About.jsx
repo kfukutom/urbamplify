@@ -25,15 +25,16 @@ export const About = ({ isDark }) => {
         <div className="right-content">
           <p>
             <span className="title-p">Urbamplify&nbsp;</span>
-            serves as a research tool to help businesses amplify their reach and effectively fund their projects.
-            It empowers businesses to grow and realize their potential within our ever-expanding 
-            <span className="urbantech"> urban environments</span>.
+            is your ultimate partner for strategic growth, designed to help businesses elevate their reach and secure impactful funding for their projects. It fuels innovation, guiding enterprises to unlock their full potential and thrive in the dynamic landscape of our ever-evolving &nbsp;
+            <span className="urbantech">urban environments</span>.
           </p>
           <button className="demo-button" onClick={navigateToAuth}>
             Book a Demo
           </button>
         </div>
       </section>
+
+      <p className="separator"></p>
 
       <section className="about-ken">
         <h1 className="ut-header">Product's Focuses 🎯 </h1>
