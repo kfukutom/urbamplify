@@ -23,6 +23,7 @@ const Auth = ({ isDark }) => {
       await signInWithEmailAndPassword(auth, email, password);
       setLoading(false);
       navigate("/dashboard");
+      console.log("Logged in successfully at ", new Date().toLocaleTimeString());
     } catch (err) {
       setLoading(false);
       setError("Failed to log in. Please check your credentials.");
@@ -81,6 +82,19 @@ const Auth = ({ isDark }) => {
           <p className="signup-prompt">
             Don&apos;t have an account? <a href="#" className="signup-link">Sign up 🚀</a>
           </p>
+
+          <p>
+            <a style={{
+              color: '#808080',
+              fontSize: 10,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: 10,
+              cursor: 'auto',
+            }}>Developed by Ken Fukutomi, 2024</a>
+          </p>
+
         </>
       )}
     </div>
