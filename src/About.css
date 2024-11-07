@@ -1,78 +1,229 @@
-/* Main About Container */
-.About {
+/* Global Reset */
+/* Consistent Styling */
+/* Developed by: Ken Matthew Fukutomi */
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Section Styling */
+section {
   width: 100%;
-  height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* About Container */
+.about-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background-color: var(--background-color);
-  transition: background-color 0.5s ease;
-}
-
-/* Animation class to change background color */
-.About.hover-background {
-  background: linear-gradient(135deg, #ff6f61, #f8e71c, #50e3c2);
-  background-size: 200% 200%;
-  animation: backgroundAnimation 3s ease infinite;
-}
-
-@keyframes backgroundAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Apply hover-background to .About when button is hovered */
-.About .btn-container:hover ~ .About,
-.About .button-19:hover ~ .About {
-  background: var(--hover-background);
-}
-
-/* Toggle & Logo Styling */
-.Logo, .Toggle {
+  flex-wrap: wrap;
+  min-height: 400px;
+  opacity: 0;
+  animation: fadeInContainer 1.2s ease-in-out forwards;
+  margin-top: 1330px; 
   margin-bottom: 20px;
 }
 
-/* Michigan Footer Text */
-.michigan {
-  color: grey;
-  position: absolute;
-  bottom: 1em;
-  left: 1.15em;
-  font-size: 18px;
+/* Keyframes fadeInContainer Animation */
+@keyframes fadeInContainer {
+  to { opacity: 1; }
 }
 
-/* LinkedIn Button */
-.linkedin-btn {
-  position: absolute;
-  display: inline-flex;
-  bottom: 3.1em;
-  left: 1.55em;
-  width: 25px;
-  height: 25px;
+/* Content Styling */
+.left-content h1 {
+  font-size: 6.5em;
+  line-height: 1.2;
+  font-weight: bold;
+  margin: 30px;
+  color: var(--primary-text-color);
+}
+
+.highlight {
+  color: #3b57ff;
+}
+
+.opposing {
+  color: var(--primary-text-color);
+  transition: color 0.3s ease-in-out;
+}
+
+.right-content {
+  max-width: 55%;
+  padding-top: 40px;
+  padding-right: 60px;
+  text-align: left;
+}
+
+.right-content p {
+  font-size: 1.5em;
+  line-height: 1.5;
+  color: var(--primary-text-color);
+}
+
+/* Button Styling */
+.demo-button {
+  background-color: #3b57ff;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='20' font-size='24'%3E🍏%3C/text%3E%3C/svg%3E") 16 16, auto;
-  transition: filter 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px;
 }
 
-.linkedin-btn:hover {
-  filter: brightness(1.1);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+.demo-button:hover {
+  background-color: #3549e6;
 }
 
-/* GitHub Button */
-.github-btn {
-  border-radius: 100px;
-  display: inline-flex;
-  position: absolute;
-  bottom: 2.95em;
-  left: 3.5em;
-  width: 30px;
-  height: 30px;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='20' font-size='24'%3E🍏%3C/text%3E%3C/svg%3E") 16 16, auto;
+/* Title Styling */
+.title-p, .urbantech {
+  font-weight: bold;
+  color: var(--demo-color1);
+  transition: color 0.3s ease-in-out;
 }
 
-.github-btn:hover {
-  filter: brightness(1.1);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+/* App Wrapper */
+.app {
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* About Ken Section */
+.about-ken {
+  display: flex;
+  align-items: center;
+  background-color: #000038;
+  padding: 40px 20px;
+  height: 40vh;
+  animation: fadeInContainer 1.8s ease-in-out forwards;
+}
+
+.ut-header {
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 30px;
+}
+.ut {
+  color: #3b57ff;
+  text-align: left;
+}
+
+/* Product Demo Section */
+.product-demo {
+  padding: 40px 20px;
+  height: 100vh;
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Workflow Section */
+.workflow-div {
+  background-color: #000038;
+  min-height: 50vh;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.workflow-header {
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.workflow-sub {
+  font-size: 1.3em;
+  color: rgb(248, 248, 197);
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.workflow-hr {
+  width: 45%;
+  margin: 20px auto;
+  border: 1px solid rgb(192, 226, 254);
+}
+
+/* Video Container */
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Footer Styling */
+.footer-text {
+  font-size: 1em;
+  color: var(--primary-text-color);
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .left-content h1 {
+    font-size: 4.5em;
+  }
+  
+  .right-content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .left-content h1 {
+    font-size: 2.5em;
+  }
+
+  .right-content p {
+    font-size: 1em;
+  }
+
+  .demo-button {
+    font-size: 1em;
+    padding: 10px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .left-content h1 {
+    font-size: 2.5em;
+  }
+
+  .right-content p {
+    font-size: 1em;
+  }
+
+  .about-container {
+    margin-top: 50px;
+  }
+  
+  .demo-button {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+}
+
+/* Footer Tag Elements */
+.footer-lock {
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  background-color: #000038;
+  color: #ffffff;
+  font-size: 1em;
+  z-index: 1000;
 }
