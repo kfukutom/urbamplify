@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import SocialLogin from "./components/SocialLogin";
 import InputField from "./components/InputField";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase-config/firebaseConfig";
+import { auth } from "./firebase-config/firebaseConfig";
 import RingLoader from "react-spinners/RingLoader";
 import { StyleSheet } from "react-native";
 import "./Auth.css";
