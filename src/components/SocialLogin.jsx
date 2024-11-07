@@ -26,7 +26,7 @@ const SocialLogin = () => {
       navigate("/dashboard");
     } catch (err) {
       // Should never reach this statement.
-      setError("Failed to log in with Google. Please try again.");
+      alert("Failed to log in with Google. Please try again.");
       console.error(err);
       setShake(true);
       setTimeout(() => setShake(false), 500);
