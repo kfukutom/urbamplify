@@ -3,15 +3,16 @@ import { useNavigate } from "react-router-dom";
 import SocialLogin from "./components/SocialLogin";
 import InputField from "./components/InputField";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase-config/firebaseConfig";
+import { auth, resetPassword } from "./firebase-config/firebaseConfig"; // Ensure resetPassword is imported
 import RingLoader from "react-spinners/RingLoader";
 import { StyleSheet } from "react-native";
-import "./Auth.css";
+import "./screen-styles/Auth.css";
 
 const Auth = ({ isDark }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [popupMsg, setMsg] = useState('');
   const [shake, setShake] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -26,10 +27,35 @@ const Auth = ({ isDark }) => {
       console.log("Logged in successfully at ", new Date().toLocaleTimeString());
     } catch (err) {
       setLoading(false);
+      setMsg("");
       setError("Failed to log in. Please check your credentials.");
       setShake(true);
       console.error(err);
       setTimeout(() => setShake(false), 500);
+    }
+  };
+
+  const handleResetPassword = () => {
+    if (!email) {
+      setMsg("");
+      setError("Please enter your email to reset your password.");
+      setShake(true);
+      setTimeout(() => setShake(false), 500);
+    } else if (!email.includes("@") || !email.includes(".")) {
+      setError("Please enter a valid email address.");
+      setShake(true);
+      setTimeout(() => setShake(false), 500);
+    } else {
+      setError("");
+      setMsg("Please check your inbox for a reset email!");
+      resetPassword(email)
+        .then(() => {
+          setError("Password reset email sent!");
+        })
+        .catch((error) => {
+          setError("Error sending password reset email.");
+          console.error("Password reset error:", error);
+        });
     }
   };
 
@@ -74,8 +100,13 @@ const Auth = ({ isDark }) => {
             {error && (
               <p className={`error-message ${shake ? 'shake' : ''}`}>{error}</p>
             )}
+            {popupMsg &&  (
+              <p className={`popup-message`}>{popupMsg}</p>
+            )}
 
-            <a href="#" className="forgot-password-link">Forgot password?</a>
+            <a href="#" className="forgot-password-link" onClick={handleResetPassword}>
+              Forgot password?
+            </a>
             <button type="submit" className="login-button">Log In</button>
           </form>
 
@@ -94,7 +125,6 @@ const Auth = ({ isDark }) => {
               cursor: 'auto',
             }}>Developed by Ken Fukutomi, 2024</a>
           </p>
-
         </>
       )}
     </div>
@@ -107,6 +137,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     display: 'flex',
   }
-})
+});
 
 export default Auth;

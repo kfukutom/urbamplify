@@ -5,14 +5,13 @@ import { getAuth } from 'firebase/auth';
 
 const auth = getAuth();
 
-
 const Dashboard = ({ isDark, user }) => {
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState('');
 
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => setLoading(false), 3500);
+    setTimeout(() => setLoading(false), 4000);
   }, []);
 
   useEffect(() => {
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
   ready_p: {
     display: 'flex',
     textAlign: 'center',
-  }
+  },
 });
 
 export default Dashboard;

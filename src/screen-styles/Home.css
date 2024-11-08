@@ -16,6 +16,12 @@ html {
   transition: background-color 0.5s ease;  
 }
 
+.dimmed-background {
+  background-color: var(--hover-bg);
+  transition: background-color 0.5s ease;
+}
+
+
 .Home.hover-background {
   background: linear-gradient(135deg, #ff6f61, #f8e71c, #50e3c2);
   background-size: 200% 200%;
