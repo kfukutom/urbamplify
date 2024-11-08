@@ -21,7 +21,8 @@
     "react-native-web": "^0.19.13",
     "react-router-dom": "^6.27.0",
     "react-spinner": "^0.2.7",
-    "react-spinners": "^0.14.1"
+    "react-spinners": "^0.14.1",
+    "react-tsparticles": "^2.12.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
