@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom'; // Import useLocation
 import { Toggle } from './components/Toggle';
 import { Logo } from './components/Logo';
-import './App.css';
+import './screen-styles/App.css';
 
 import Home from './Home';
 import About from './About';

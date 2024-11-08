@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './About.css';
+import './screen-styles/About.css';
 
 // Local image dependencies
 import linkedinImage from './assets/linkedin.png';

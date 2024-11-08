@@ -5,7 +5,7 @@ import { Buttons } from "./components/Buttons";
 import { writeLoop } from "./components/typewriter"; 
 import useLocalStorage from "use-local-storage";
 import { Logo } from "./components/Logo";
-import "./Home.css";
+import "./screen-styles/Home.css";
 
 import linkedinImage from "./assets/linkedin.png";
 import GithubImage from "./assets/github.png";

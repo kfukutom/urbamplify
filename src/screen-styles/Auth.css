@@ -45,7 +45,7 @@ body {
 }
 
 .login-container[data-theme="dark"] {
-  box-shadow: 0 8px 15px #dcd3ff;
+  box-shadow: 0 4px 4px #ffffff;
 }
 
 .login-container .form-title {
@@ -241,6 +241,14 @@ body {
  
 .error-message {
   color: #ce3336;
+  padding: 0.1rem;
+  margin-top: 1rem;
+  margin-bottom: 1.4rem;
+  font-size: 0.9rem;
+}
+
+.popup-message {
+  color: #808080;
   padding: 0.1rem;
   margin-top: 1rem;
   margin-bottom: 1.4rem;
