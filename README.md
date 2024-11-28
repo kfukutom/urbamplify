@@ -34,6 +34,3 @@ As of **October 29, 2024**, I have successfully developed a simple and minimalis
 ![Login_Error_UI](./demo/demo-11-04-24.gif)
 
 **Date** 11/06/24 ~ Applied React Native, finished up the rendering for the loading screen animation.
-I've fixed up the Firebase Authentication and now GoogleAuthProvider is connected, and I'll begin to work on deploying the actual dashboard of this project.
-
-![Auth_provider](./demo/demo-11-07-24-revised.gif)
