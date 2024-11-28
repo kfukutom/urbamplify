@@ -34,3 +34,7 @@ As of **October 29, 2024**, I have successfully developed a simple and minimalis
 ![Login_Error_UI](./demo/demo-11-04-24.gif)
 
 **Date** 11/06/24 ~ Applied React Native, finished up the rendering for the loading screen animation.
+
+Added MapBoxAPI component and GeoCoding Services. I'll begin working with PlacesAPI as well as implementing my Python Script very soon to calculate 'scores' to assess business ventures based upon their strategized places of operation as well as other factors that permeates throughout the vicinity of the neighborhood and city.
+
+![MapBox_Success](./demo/11-28-24-demo.gif)
