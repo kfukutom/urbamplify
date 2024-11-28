@@ -36,6 +36,7 @@ As of **October 29, 2024**, I have successfully developed a simple and minimalis
 
 **Date** 11/06/24 ~ Applied React Native, finished up the rendering for the loading screen animation.
 
-**Date** 11/28/24 ~ Back on break, began working on applying the MapBoxAPI as well as implementing a slider for the website that will help users to navigate NYC seamlessly. Additionally, fixed up the application of the light/dark mode component for the map so it reflect's the importance of abiding user preferences prior to my own design decision-making.
+**Date** 11/28/24 ~ Back on break, began working on applying the MapBoxAPI as well as implementing a slider for the website that will help users to navigate NYC seamlessly. Additionally, fixed up the application of the light/dark mode component for the map so it reflect's the importance of abiding user preferences prior to my own design decision-making. 
+
 ![Demo_MapBox](./demo/11-28-24-demo.gif)
 
