@@ -1,0 +1,44 @@
+.hamburger {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s ease;
+}
+
+.hamburger:focus {
+  outline: none;
+}
+
+.hamburger-bar {
+  width: 100%;
+  height: 2px;
+  background-color: #5f6368;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.hamburger:hover .hamburger-bar {
+  background-color: #202124;
+}
+
+.hamburger.open .hamburger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open .hamburger-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .hamburger-bar:nth-child(3) {
+  transform: translateY(-15px) rotate(-45deg);
+}

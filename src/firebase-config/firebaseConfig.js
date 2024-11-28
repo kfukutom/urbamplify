@@ -19,6 +19,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
+//const appleProvider = new AppleProvider();
 
 // Google Login Functionality:
 function signInWithGoogle(navigate) {

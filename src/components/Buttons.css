@@ -58,7 +58,7 @@
   -webkit-filter: brightness(1.1);
 }
 
-/* Use default cursor for disabled state */
+/* fixed on nov 23 */
 .button-19:disabled {
   cursor: auto;
 }

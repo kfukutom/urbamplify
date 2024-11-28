@@ -8,6 +8,9 @@ import RingLoader from "react-spinners/RingLoader";
 import { StyleSheet } from "react-native";
 import "./screen-styles/Auth.css";
 
+// DEVELOPED BY: KEN FUKUTOMI (2024)
+// URBAMPLIFY APP v1.1.2
+
 const Auth = ({ isDark }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -107,7 +110,13 @@ const Auth = ({ isDark }) => {
             <a href="#" className="forgot-password-link" onClick={handleResetPassword}>
               Forgot password?
             </a>
-            <button type="submit" className="login-button">Log In</button>
+            <button type="submit" className="login-button">
+              <script>
+              console.log('App Token:', process.env.VITE_APP_TOKEN);
+              console.log('Firebase API Key:', process.env.VITE_FIREBASE_API_KEY);
+              </script>
+              Log In
+            </button>
           </form>
 
           <p className="signup-prompt">
