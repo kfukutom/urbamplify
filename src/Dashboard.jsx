@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
+import MapboxDraw from '@mapbox/mapbox-gl-draw';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import './screen-styles/Hamburger.css';
-import { RingLoader } from 'react-spinners';
+import { ClipLoader } from 'react-spinners';
 import { getAuth } from 'firebase/auth';
 
 const auth = getAuth();
-mapboxgl.accessToken = 'pk.eyJ1Ijoia2Z1a3V0b20iLCJhIjoiY20yb3dlZHk0MGxjZzJrcHVleHE4cmV2cyJ9.qLU2UGh3fxhU7qvQuZskxw'; // Replace with your Mapbox access token
+mapboxgl.accessToken = 'pk.eyJ1Ijoia2Z1a3V0b20iLCJhIjoiY20yb3dlZHk0MGxjZzJrcHVleHE4cmV2cyJ9.qLU2UGh3fxhU7qvQuZskxw';
 
 const Dashboard = ({ isDark, user }) => {
   const [loading, setLoading] = useState(false);
@@ -17,12 +19,16 @@ const Dashboard = ({ isDark, user }) => {
   const [cityName, setCityName] = useState('');
   const [businessMetric1, setBusinessMetric1] = useState(50);
   const [businessMetric2, setBusinessMetric2] = useState(50);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [businessMetric3, setBusinessMetric3] = useState(50);
+  const [shakeInput, setShakeInput] = useState(false);
+  const [editMode, setEditMode] = useState(false);
   const mapContainer = useRef(null);
   const mapInstance = useRef(null);
+  const drawInstance = useRef(null);
 
   useEffect(() => {
     setLoading(true);
+    setMenuActive(true);
     setTimeout(() => setLoading(false), 4000);
   }, []);
 
@@ -35,16 +41,23 @@ const Dashboard = ({ isDark, user }) => {
 
   useEffect(() => {
     if (!loading) {
-      const mapStyle = isDark
-        ? 'mapbox://styles/mapbox/dark-v10'
-        : 'mapbox://styles/mapbox/streets-v12';
-
+      const mapStyle = isDark ? 'mapbox://styles/mapbox/dark-v10' : 'mapbox://styles/mapbox/streets-v12';
       mapInstance.current = new mapboxgl.Map({
         container: mapContainer.current,
         style: mapStyle,
         center: center,
         zoom: zoomLevel,
       });
+
+      drawInstance.current = new MapboxDraw({
+        displayControlsDefault: false,
+        controls: {
+          polygon: true,
+          trash: true,
+        },
+      });
+
+      mapInstance.current.addControl(drawInstance.current);
 
       mapInstance.current.on('zoom', () => {
         setZoomLevel(mapInstance.current.getZoom());
@@ -56,16 +69,17 @@ const Dashboard = ({ isDark, user }) => {
         updateCityName(newCenter.lng, newCenter.lat);
       });
 
+      mapInstance.current.on('draw.create', handleDrawCreate);
+      mapInstance.current.on('draw.update', handleDrawUpdate);
+      mapInstance.current.on('draw.delete', handleDrawDelete);
+
       return () => mapInstance.current.remove();
     }
   }, [loading]);
 
-  // FIXED TODAY: KEN FUKUTOMI (2024)
   useEffect(() => {
     if (mapInstance.current) {
-      const mapStyle = isDark
-        ? 'mapbox://styles/mapbox/dark-v10'
-        : 'mapbox://styles/mapbox/streets-v12';
+      const mapStyle = isDark ? 'mapbox://styles/mapbox/dark-v10' : 'mapbox://styles/mapbox/streets-v12';
       mapInstance.current.setStyle(mapStyle);
     }
   }, [isDark]);
@@ -81,13 +95,10 @@ const Dashboard = ({ isDark, user }) => {
       );
       const data = await response.json();
       if (data.features && data.features.length > 0) {
-        //locality test 1: neighborhood
         const neighborhood = data.features.find((feature) =>
           feature.place_type.includes('neighborhood') || feature.place_type.includes('locality')
         );
-
         const place = data.features.find((feature) => feature.place_type.includes('place'));
-
         if (neighborhood) {
           setCityName(neighborhood.text);
         } else if (place) {
@@ -101,7 +112,6 @@ const Dashboard = ({ isDark, user }) => {
       setCityName('Error fetching location');
     }
   };
-
 
   const handleCitySearch = async () => {
     if (!cityName) return;
@@ -120,7 +130,6 @@ const Dashboard = ({ isDark, user }) => {
           feature.center[0] + 0.01,
           feature.center[1] + 0.01,
         ];
-
         mapInstance.current.fitBounds(
           [
             [minLng, minLat],
@@ -131,25 +140,49 @@ const Dashboard = ({ isDark, user }) => {
             duration: 1000,
           }
         );
-
         const updatedCityName = feature.text;
         setCityName(updatedCityName);
-        setErrorMessage('');
       } else {
-        setErrorMessage('Location not found!');
+        setShakeInput(true);
+        setTimeout(() => setShakeInput(false), 820);
       }
     } catch (error) {
-      setErrorMessage('Error fetching location coordinates. Please try again.');
+      setShakeInput(true);
+      setTimeout(() => setShakeInput(false), 820);
     }
+  };
+
+  const handleDrawCreate = (e) => {
+    console.log('Shape created:', e.features[0]);
+  };
+
+  const handleDrawUpdate = (e) => {
+    console.log('Shape updated:', e.features[0]);
+  };
+
+  const handleDrawDelete = (e) => {
+    console.log('Shape deleted:', e.features[0]);
+  };
+
+  const toggleEditMode = () => {
+    setEditMode((prev) => !prev);
+    if (!editMode) {
+      drawInstance.current.changeMode('draw_polygon');
+    } else {
+      drawInstance.current.changeMode('simple_select');
+    }
+  };
+
+  const clearAllDrawings = () => {
+    drawInstance.current.deleteAll();
   };
 
   return loading ? (
     <div style={styles.loadingIcon}>
-      <RingLoader color="#333fff" loading={loading} size={150} />
+      <ClipLoader color="#333fff" loading={loading} size={75} />
     </div>
   ) : (
     <div className="dashboard-wrapper" style={styles.wrapper}>
-      {/* Longitude/Latitude Container */}
       <div style={styles.longLatContainer}>
         <p style={styles.longLatText}>
           Longitude: <strong>{center[0].toFixed(4)}</strong>
@@ -161,19 +194,12 @@ const Dashboard = ({ isDark, user }) => {
           We're Currently in: <strong>{cityName || 'Unknown'}</strong>
         </p>
       </div>
-
-      <div className="profile-icon">
-        {/* Profile Icon */}
-      </div>
-
-      {/* Hamburger Button */}
+      <div className="profile-icon">{/* Profile Icon */}</div>
       <button className={`hamburger ${menuActive ? 'open' : ''}`} onClick={toggleMenu}>
         <div className="hamburger-bar"></div>
         <div className="hamburger-bar"></div>
         <div className="hamburger-bar"></div>
       </button>
-
-      {/* Sidebar */}
       <div
         className={`navigation ${menuActive ? 'active' : ''}`}
         style={{
@@ -182,13 +208,13 @@ const Dashboard = ({ isDark, user }) => {
         }}
       >
         <div style={styles.dashboardContent}>
-          <h3 style={styles.heading}>Map Configuration 🔨</h3>
+          <h3 style={styles.heading}>Map Configuration</h3>
           <hr style={styles.hr} />
           <div style={styles.scrollableContent}>
-            {/* City Input */}
             <label style={styles.label}>
-              <p style={styles.cityTitle}>Enter City Name (Manhattan/NYC):</p>
+              <p style={styles.cityTitle}>Enter Neighborhood Name:</p>
               <input
+                className={`skibidi ${shakeInput ? 'shake' : ''}`}
                 type="text"
                 value={cityName}
                 onChange={(e) => setCityName(e.target.value)}
@@ -197,9 +223,6 @@ const Dashboard = ({ isDark, user }) => {
                 placeholder="e.g., Harlem, Astoria, etc."
               />
             </label>
-            {errorMessage && <div style={styles.errorMessage}>{errorMessage}</div>}
-
-            {/* Zoom Slider */}
             <label style={styles.label}>
               Zoom Level:
               <input
@@ -217,8 +240,6 @@ const Dashboard = ({ isDark, user }) => {
               />
               <span style={styles.metricValue}>{zoomLevel.toFixed(1)}</span>
             </label>
-
-            {/* Business Metric 1 */}
             <label style={styles.label}>
               Business Metric 1:
               <input
@@ -231,8 +252,6 @@ const Dashboard = ({ isDark, user }) => {
               />
               <span style={styles.metricValue}>{businessMetric1}</span>
             </label>
-
-            {/* Business Metric 2 */}
             <label style={styles.label}>
               Business Metric 2:
               <input
@@ -245,11 +264,35 @@ const Dashboard = ({ isDark, user }) => {
               />
               <span style={styles.metricValue}>{businessMetric2}</span>
             </label>
+            <label style={styles.label}>
+              Business Metric 3:
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={businessMetric3}
+                onChange={(e) => setBusinessMetric3(Number(e.target.value))}
+                style={styles.slider}
+              />
+              <span style={styles.metricValue}>{businessMetric3}</span>
+            </label>
+            <hr style={styles.hr2} />
+            <button className="btn-draw" onClick={toggleEditMode}>
+              {editMode ? 'Exit Draw Mode' : 'Enter Draw Mode'}
+            </button>
+            <button className="btn-clear" onClick={clearAllDrawings}>
+              Clear All Drawings
+            </button>
           </div>
         </div>
       </div>
-
-      {/* Map Container */}
+      <div className="urbamplify-logo">
+        <h2 className="form-title">
+          <span style={{ color: isDark ? '#ffffff' : '#000000', fontWeight: 'bold', textShadow: '0.5px 0.2px 1px black' }}>urb</span>
+          <span style={{ color: '#333fff', fontWeight: 'bold', textShadow: '0.5px 0.2px 1px black' }}>amplify&nbsp;</span>
+          <span style={{ fontSize: 12, color: isDark ? '#ffffff' : '#000000' }}>v1.2.2</span>
+        </h2>
+      </div>
       <div ref={mapContainer} className="map-container" style={styles.mapContainer}></div>
     </div>
   );
@@ -264,11 +307,11 @@ const styles = {
   },
   longLatContainer: {
     position: 'absolute',
-    top: '15px',
-    right: '15px',
+    top: '7px',
+    right: '9px',
     padding: '10px 15px',
     backgroundColor: '#ffffff',
-    borderRadius: '8px',
+    borderRadius: '10px',
     boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
     zIndex: 10,
   },
@@ -283,11 +326,14 @@ const styles = {
     left: 0,
     height: '100%',
     backgroundColor: '#ffffff',
-    transition: 'transform 0.3s ease-out',
+    transition: 'transform 0.4s ease-out',
     zIndex: 10,
     boxShadow: '2px 0 5px rgba(0,0,0,0.1)',
-    padding: '20px',
-    width: '300px',
+    paddingTop: '20px',
+    paddingRight: '20px',
+    paddingBottom: '5px',
+    paddingLeft: '20px',
+    width: '350px',
   },
   sidebarClosed: {
     transform: 'translateX(-100%)',
@@ -319,8 +365,9 @@ const styles = {
   heading: {
     fontSize: '20px',
     fontWeight: 'bold',
+    marginTop: '25px',
     marginBottom: '10px',
-    color: '#333333',
+    color: '#333fff',
   },
   label: {
     display: 'block',
@@ -345,11 +392,12 @@ const styles = {
     transition: 'opacity 0.2s',
     borderRadius: '5px',
     height: '5px',
+    cursor: 'pointer',
   },
   metricValue: {
-    marginLeft: '10px',
+    marginLeft: '3.5px',
     fontWeight: 'bold',
-    color: '#333333',
+    color: '#343333',
   },
   hr: {
     width: '100%',
@@ -357,14 +405,36 @@ const styles = {
     borderColor: '#ccc',
     borderWidth: '1px',
   },
-  errorMessage: {
-    color: 'red',
-    marginBottom: '10px',
-    fontSize: '14px',
+  hr2 : {
+    width: '100%',
+    marginBottom: '20px',
+    borderColor: '#ccc',
+    borderWidth: '1px',
   },
   cityTitle: {
     marginBottom: '10px',
     fontWeight: 'bold',
+  },
+  icon: {
+    position: 'absolute',
+    top: 'calc(15px + 85px)',
+    right: '15px',
+    padding: '10px 15px',
+    backgroundColor: '#ffffff',
+    borderRadius: '8px',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+    zIndex: 10,
+    marginTop: '15px',
+  },
+  button: {
+    width: '100%',
+    padding: '10px',
+    marginBottom: '10px',
+    backgroundColor: '#333fff',
+    color: '#ffffff',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
   },
 };
 

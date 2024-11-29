@@ -4,7 +4,7 @@ import SocialLogin from "./components/SocialLogin";
 import InputField from "./components/InputField";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, resetPassword } from "./firebase-config/firebaseConfig"; // Ensure resetPassword is imported
-import RingLoader from "react-spinners/RingLoader";
+import { ClipLoader } from 'react-spinners';
 import { StyleSheet } from "react-native";
 import "./screen-styles/Auth.css";
 
@@ -74,13 +74,13 @@ const Auth = ({ isDark }) => {
     >
       {loading ? (
         <div style={styles.loadingIcon}>
-          <RingLoader color="#333fff" loading={loading} size={150} />
+          <ClipLoader color="#333fff" loading={loading} size={75} />
         </div>
       ) : (
         <>
           <h2 className="form-title">
             urb<span style={{ color: '#333fff', fontWeight: 'bold' }}>amplify&nbsp;</span>
-            <span style={{ fontSize: 12 }}>v1.1.2</span>
+            <span style={{ fontSize: 12 }}>v1.2.2</span>
           </h2>
           <SocialLogin />
 
