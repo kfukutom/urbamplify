@@ -3,7 +3,7 @@
   top: 16px;
   left: 16px;
   width: 24px;
-  height: 24px;
+  height: 20px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -28,7 +28,7 @@
 }
 
 .hamburger:hover .hamburger-bar {
-  background-color: #202124;
+  background-color: black;
 }
 
 .hamburger.open .hamburger-bar:nth-child(1) {
@@ -40,5 +40,63 @@
 }
 
 .hamburger.open .hamburger-bar:nth-child(3) {
-  transform: translateY(-15px) rotate(-45deg);
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+.urbamplify-logo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  padding: 10px;
+  background: none;
+}
+.shake {
+  color: rgb(145, 32, 32);
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(-5px);
+  }
+  40%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.btn-draw {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #333fff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-clear {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #333fff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-clear:hover {
+  background-color: #4a55ef;
+}
+.btn-draw:hover {
+  background-color: #4a55ef;
 }
