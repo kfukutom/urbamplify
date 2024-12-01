@@ -15,6 +15,7 @@ dist-ssr
 .DS_Store
 .gitignore
 firebaseConfig.js
+stronk.png
 
 # Editor directories and files
 .vscode/*

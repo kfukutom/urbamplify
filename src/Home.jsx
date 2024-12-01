@@ -29,7 +29,6 @@ export const Home = ({ isDark }) => {
   const handleNavigateToAbout = () => {
     navigate("/about");
   };
-
   return (
     <div
       className={`Home ${isDimmed ? "dimmed-background" : ""}`}
