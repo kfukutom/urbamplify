@@ -1,5 +1,5 @@
 Landing Page:
-![skibidi](./demo/ui-demo.png)
+![skibidi](./demo/ui-new.png)
 
 ![hi](./demo/lockedin.png)
 
