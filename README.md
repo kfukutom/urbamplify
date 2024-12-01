@@ -1,4 +1,5 @@
-~ Onboarding:
+Demo:
+![skibidi](./demo/ui-demo.png)
 
 This project is my journey in learning software development fundamentals whilst applying computational social science programming tools! Some key goals of this project include:
 
