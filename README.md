@@ -1,5 +1,8 @@
-Demo:
+Landing Page:
 ![skibidi](./demo/ui-demo.png)
+
+Main Software:
+![skibidi-toilet](./demo/ui-software.png)
 
 This project is my journey in learning software development fundamentals whilst applying computational social science programming tools! Some key goals of this project include:
 
