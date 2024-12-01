@@ -6,10 +6,6 @@ import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import './screen-styles/Hamburger.css';
 import { SyncLoader } from 'react-spinners';
 import { getAuth } from 'firebase/auth';
-import { color } from 'framer-motion';
-
-// image dependencies
-//import { carSvg } from './assets/car-2.svg';
 
 const auth = getAuth();
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2Z1a3V0b20iLCJhIjoiY20yb3dlZHk0MGxjZzJrcHVleHE4cmV2cyJ9.qLU2UGh3fxhU7qvQuZskxw';
@@ -26,6 +22,10 @@ const Dashboard = ({ isDark, user }) => {
   const [businessMetric3, setBusinessMetric3] = useState(50);
   const [shakeInput, setShakeInput] = useState(false);
   const [editMode, setEditMode] = useState(false);
+  const [showInitialScreen, setShowInitialScreen] = useState(true);
+  const [sessionLink, setSessionLink] = useState('');
+  const [isDrawMode, setIsDrawMode] = useState(false);
+
   const mapContainer = useRef(null);
   const mapInstance = useRef(null);
   const drawInstance = useRef(null);
@@ -33,7 +33,7 @@ const Dashboard = ({ isDark, user }) => {
   useEffect(() => {
     setLoading(true);
     setMenuActive(true);
-    setTimeout(() => setLoading(false), 4000);
+    setTimeout(() => setLoading(false), 4500);
   }, []);
 
   useEffect(() => {
@@ -88,8 +88,38 @@ const Dashboard = ({ isDark, user }) => {
     }
   }, [isDark]);
 
+  useEffect(() => {
+    setShowInitialScreen(true);
+  }, []);
+
   const toggleMenu = () => {
     setMenuActive((prev) => !prev);
+  };
+
+  const handleCreateSession = () => {
+    if (!sessionLink.trim()) {
+      alert('Please enter a valid session name.');
+      return;
+    }
+    // Case when link contains a space.
+    if (sessionLink.includes(' ')) {
+      alert('Session link cannot contain spaces.');
+      return;
+    }
+    const uniqueLink = (`urbamplify.net/${sessionLink}`);
+    // Store unique link in firestore.
+    /*const useRef = db.collection('sessions').doc(uniqueLink);
+    useRef.set({
+      sessionLink: uniqueLink,
+      createdBy: user.email,
+      createdAt: new Date(),
+    });*/
+    setShowInitialScreen(false);
+    console.log(`Private session link created: ${uniqueLink}`);
+  };
+
+  const handleDismiss = () => {
+    setShowInitialScreen(false);
   };
 
   const updateCityName = async (lng, lat) => {
@@ -102,7 +132,9 @@ const Dashboard = ({ isDark, user }) => {
         const neighborhood = data.features.find((feature) =>
           feature.place_type.includes('neighborhood') || feature.place_type.includes('locality')
         );
-        const place = data.features.find((feature) => feature.place_type.includes('place'));
+        const place = data.features.find((feature) =>
+          feature.place_type.includes('place')
+        );
         if (neighborhood) {
           setCityName(neighborhood.text);
         } else if (place) {
@@ -170,6 +202,8 @@ const Dashboard = ({ isDark, user }) => {
 
   const toggleEditMode = () => {
     setEditMode((prev) => !prev);
+    setIsDrawMode((prev) => !prev);
+    console.log('Draw Mode:', isDrawMode);
     if (!editMode) {
       drawInstance.current.changeMode('draw_polygon');
     } else {
@@ -179,14 +213,37 @@ const Dashboard = ({ isDark, user }) => {
 
   const clearAllDrawings = () => {
     drawInstance.current.deleteAll();
+    console.log('All drawings cleared.');
   };
 
   return loading ? (
     <div style={styles.loadingIcon}>
       <SyncLoader color="#333fff" loading={loading} size={15} />
+      {/*<p style={styles.loadingText}> Loading...</p>*/}
+      <div className="header-line"></div>
+      <div className="sub-header-line"></div>
     </div>
   ) : (
     <div className="dashboard-wrapper" style={styles.wrapper}>
+      {showInitialScreen && (
+        <div className="initial-screen-overlay">
+          <div className="initial-screen-content">
+            <h2>Welcome to <span className="substitute">Urbamplify</span>!&nbsp;</h2>
+            <p>Would you like to create a private, shareable work session?</p>
+            <div className="link-input-container">
+              <span className="link-prefix">urbamplify.net/</span>
+                <input
+                  type="text"
+                  alue={sessionLink}
+                  onChange={(e) => setSessionLink(e.target.value)}
+                  placeholder="custom ID (REQUIRED)"
+                />
+            </div>
+            <button className="create-session" onClick={handleCreateSession}>Create Session</button>
+            <button className="deny-session" onClick={handleDismiss}>No thanks!</button>
+          </div>
+        </div>
+      )}
       <div style={styles.longLatContainer}>
         <p style={styles.longLatText}>
           || Longitude: <strong>{center[0].toFixed(4)}</strong>
@@ -194,12 +251,11 @@ const Dashboard = ({ isDark, user }) => {
         <p style={styles.longLatText}>
           || Latitude: <strong>{center[1].toFixed(4)}</strong>
         </p>
-        {/*<img src={carSvg} alt="Car Icon" style={{ width: '30px', height: '30px', zIndex: '10' }} />*/}
         <p style={styles.longLatTextSkibidi}>
           🗽 We're Currently in: <strong>{cityName || 'Unknown'}</strong>
         </p>
       </div>
-      <div className="profile-icon">{/* Profile Icon */}</div>
+      <div className="profile-icon"></div>
       <button className={`hamburger ${menuActive ? 'open' : ''}`} onClick={toggleMenu}>
         <div className="hamburger-bar"></div>
         <div className="hamburger-bar"></div>
@@ -213,9 +269,7 @@ const Dashboard = ({ isDark, user }) => {
         }}
       >
         <div style={styles.dashboardContent}>
-          <h3 style={styles.heading}>
-            Map Configuration
-          </h3>
+          <h3 style={styles.heading}>Map Configuration</h3>
           <hr style={styles.hr} />
           <div style={styles.scrollableContent}>
             <label style={styles.label}>
@@ -374,6 +428,13 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
+  },
+  loadingText: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '120vh',
+    marginTop: '50px',
   },
   heading: {
     fontSize: '20px',

@@ -13,7 +13,47 @@ html {
   justify-content: center;
   align-items: center;
   background-color: var(--background-color);
-  transition: background-color 0.5s ease;  
+  transition: background-color 0.5s ease, transform 0.3s ease;  
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated gradient background */
+.Home::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#tsparticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 .dimmed-background {
@@ -21,45 +61,38 @@ html {
   transition: background-color 0.5s ease;
 }
 
-
-.Home.hover-background {
-  background: linear-gradient(135deg, #ff6f61, #f8e71c, #50e3c2);
-  background-size: 200% 200%;
-  animation: backgroundAnimation 3s ease infinite;
-}
-
-@keyframes backgroundAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-
-/* Apply hover-background to .App when button is hovered */
-.Home .btn-container:hover ~ .App,
-.Home .button-19:hover ~ .App {
-  background: var(--hover-background);
-}
-
 /* Title Styling */
 .title {
   color: var(--primary-text-color);
   margin-bottom: 20px;
-  overflow: hidden;
-  white-space: nowrap;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  z-index: 1;
+  font-size: 2.5rem;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Typewriter and Cursor Animations */
 .typewriter {
   color: var(--toggle-bg);
   font-weight: bold;
+  display: inline-block;
 }
 
 .cursor {
   color: var(--toggle-bg);
-  text-align: center;
-  animation: blink 1s linear infinite;
-  padding: 2.5px;
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 0.7s infinite;
 }
 
 @keyframes blink {
@@ -71,46 +104,56 @@ html {
   }
 }
 
-/* Michigan Footer Text */
-.michigan {
-  color: rgb(117, 117, 117);
-  position: absolute;
-  bottom: 1em;
-  left: 1.15em;
-  font-size: 18px;
-  text-shadow: rgba(0, 0, 0, 0.3) 1px 1px 3px;
+/* Button container */
+.btn-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 0.5s forwards;
 }
 
-/* LinkedIn Button */
-.linkedin-btn {
-  position: absolute;
-  display: inline-flex;
-  bottom: 3.1em;
-  left: 1.55em;
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-  transition: filter 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.linkedin-btn:hover {
-  filter: brightness(1.1);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* GitHub Button  */
+/* Social media icons */
+.linkedin-btn,
 .github-btn {
-  border-radius: 100px;
-  display: inline-flex;
   position: absolute;
-  bottom: 2.95em;
-  left: 3.5em;
+  bottom: 20px;
   width: 30px;
   height: 30px;
   cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  z-index: 1;
 }
 
+.linkedin-btn {
+  left: 20px;
+}
+
+.github-btn {
+  left: 60px;
+}
+
+.linkedin-btn:hover,
 .github-btn:hover {
-  filter: brightness(1.1);
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+  filter: brightness(1.2);
+}
+
+/* Version text */
+.michigan {
+  color: var(--primary-text-color);
+  position: absolute;
+  bottom: 20px;
+  right: 33px;
+  font-size: 14px;
+  opacity: 0.7;
+  z-index: 1;
 }

@@ -100,3 +100,136 @@
 .btn-draw:hover {
   background-color: #4a55ef;
 }
+.initial-screen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.initial-screen-content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+  text-align: center;
+  max-width: 450px;
+  width: 90%;
+  font-family: 'Arial', sans-serif;
+}
+
+.initial-screen-content h2 {
+  margin-bottom: 1rem;
+  color: #333333;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.initial-screen-content p {
+  margin-bottom: 1.5rem;
+  color: #555555;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.link-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+.substitute {
+  color: #333fff;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.link-prefix {
+  font-size: 1rem;
+  color: #333;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.initial-screen-content input {
+  width: 70%; /* Adjusted width for better balance */
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.initial-screen-content input:focus {
+  border-color: #333fff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(51, 63, 255, 0.5); /* Adds a glowing effect on focus */
+}
+
+.create-session, .deny-session {
+  border: none;
+  padding: 0.7rem 1.5rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.create-session {
+  background-color: #333fff;
+  color: #ffffff;
+}
+
+.create-session:hover {
+  background-color: #2929cc;
+  transform: translateY(-2px); /* Adds a subtle lift effect */
+}
+
+.deny-session {
+  background-color: #666666;
+  color: #ffffff;
+}
+
+.deny-session:hover {
+  background-color: #4d4d4d;
+  transform: translateY(-2px);
+}
+
+.initial-screen-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.initial-screen-buttons button:first-child {
+  margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .initial-screen-content {
+    padding: 1.5rem;
+    max-width: 90%;
+  }
+
+  .initial-screen-content input {
+    width: 100%;
+  }
+
+  .link-input-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .link-prefix {
+    margin-bottom: 0.5rem;
+  }
+}

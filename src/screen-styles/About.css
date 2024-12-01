@@ -24,20 +24,16 @@ section {
   flex-wrap: wrap;
   min-height: 400px;
   opacity: 0;
-  animation: fadeInContainer 1.2s ease-in-out forwards;
-  margin-top: 2829px; 
-  margin-bottom: 20px;
+  animation: fadeInContainer 2s ease-in-out forwards;
+  margin-top: 2750px; 
+  margin-bottom: 0px;
 }
 
-@keyframes fadeInContainer {
-  to { opacity: 1; }
-}
-
-/* Content Styling */
 .left-content h1 {
   font-size: 6.5em;
   line-height: 1.2;
   font-weight: bold;
+
   margin: 30px;
   color: var(--primary-text-color);
 }
@@ -51,6 +47,23 @@ section {
 .opposing {
   color: var(--primary-text-color);
   transition: color 0.5s ease;
+}
+
+.opposing-below {
+  color: #888;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  position: relative;
+  margin-left: 25px;
+
+
+  margin-top: -32px;
+  transition: color 0.5s ease-in-out;
+  font-size: 1rem;
+}
+.relative-svg {
+  position: relative;
+  top: 5px;
+  
 }
 
 .right-content {
@@ -120,7 +133,6 @@ section {
   text-align: right;
 }
 
-/* Product Demo Section */
 .product-demo {
   padding: 40px 20px;
   height: 175vh;
@@ -131,7 +143,6 @@ section {
   background-color: #0a0a0a;
 }
 
-/* Workflow Section */
 .workflow-div {
   background-color: #000038;
   min-height: 50vh;
@@ -224,7 +235,10 @@ section {
   }
 }
 
-/* Footer Tag Elements */
+@keyframes fadeInContainer {
+  to { opacity: 1; }
+}
+
 .footer-lock {
   bottom: 0;
   width: 100%;
@@ -263,6 +277,10 @@ section {
   transition: 0.5s ease-in-out;
   text-align: center;
   margin-bottom: 2.5rem;
+}
+
+.bold-skibidi {
+  font-weight: bold;
 }
 
 .subscribe-container {
@@ -308,16 +326,36 @@ section {
   background-color: #3549e6;
 }
 
+.header-line {
+  background-color: #000038;
+  height: 14.35px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.sub-header-line {
+  background-color: #2a3364;
+  height: 2.314px;
+  width: 100%;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  z-index: 1000;
+}
+
+
 .social-links {
   display: flex;
   justify-content: center;
   gap: 2rem;
   margin-bottom: 2rem;
-  transition: color 0.5s ease;
+  transition: color 0.5s ease-in-out;
 }
 
 .social-icon {
-  color: var(--text-color);
+  color: var(--primary-text-color);
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.5s ease;
@@ -370,7 +408,7 @@ section {
 }
 
 .responsive-header-image {
-  width: 100%; /* Scale to fit the full width of the container */
+  width: 100%;
   height: auto; 
   max-height: 400px;
   display: block;
@@ -399,7 +437,7 @@ section {
   box-shadow: 0 0 10px white;
 }
 
-/* Slide-in animation class */
+/* Slide-in skibidi animation class should be fixed... */
 .demo-image1.slide-in {
   transform: translateX(0);
   opacity: 1;
