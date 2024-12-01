@@ -4,8 +4,12 @@ import MapboxDraw from '@mapbox/mapbox-gl-draw';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import './screen-styles/Hamburger.css';
-import { ClipLoader } from 'react-spinners';
+import { SyncLoader } from 'react-spinners';
 import { getAuth } from 'firebase/auth';
+import { color } from 'framer-motion';
+
+// image dependencies
+//import { carSvg } from './assets/car-2.svg';
 
 const auth = getAuth();
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2Z1a3V0b20iLCJhIjoiY20yb3dlZHk0MGxjZzJrcHVleHE4cmV2cyJ9.qLU2UGh3fxhU7qvQuZskxw';
@@ -179,19 +183,20 @@ const Dashboard = ({ isDark, user }) => {
 
   return loading ? (
     <div style={styles.loadingIcon}>
-      <ClipLoader color="#333fff" loading={loading} size={75} />
+      <SyncLoader color="#333fff" loading={loading} size={15} />
     </div>
   ) : (
     <div className="dashboard-wrapper" style={styles.wrapper}>
       <div style={styles.longLatContainer}>
         <p style={styles.longLatText}>
-          Longitude: <strong>{center[0].toFixed(4)}</strong>
+          || Longitude: <strong>{center[0].toFixed(4)}</strong>
         </p>
         <p style={styles.longLatText}>
-          Latitude: <strong>{center[1].toFixed(4)}</strong>
+          || Latitude: <strong>{center[1].toFixed(4)}</strong>
         </p>
-        <p style={styles.longLatText}>
-          We're Currently in: <strong>{cityName || 'Unknown'}</strong>
+        {/*<img src={carSvg} alt="Car Icon" style={{ width: '30px', height: '30px', zIndex: '10' }} />*/}
+        <p style={styles.longLatTextSkibidi}>
+          🗽 We're Currently in: <strong>{cityName || 'Unknown'}</strong>
         </p>
       </div>
       <div className="profile-icon">{/* Profile Icon */}</div>
@@ -208,7 +213,9 @@ const Dashboard = ({ isDark, user }) => {
         }}
       >
         <div style={styles.dashboardContent}>
-          <h3 style={styles.heading}>Map Configuration</h3>
+          <h3 style={styles.heading}>
+            Map Configuration
+          </h3>
           <hr style={styles.hr} />
           <div style={styles.scrollableContent}>
             <label style={styles.label}>
@@ -276,13 +283,13 @@ const Dashboard = ({ isDark, user }) => {
               />
               <span style={styles.metricValue}>{businessMetric3}</span>
             </label>
-            <hr style={styles.hr2} />
             <button className="btn-draw" onClick={toggleEditMode}>
-              {editMode ? 'Exit Draw Mode' : 'Enter Draw Mode'}
+              {editMode ? 'Exit Builder Mode' : 'Enter Builder Mode'}
             </button>
             <button className="btn-clear" onClick={clearAllDrawings}>
               Clear All Drawings
             </button>
+            <hr style={styles.hr2} />
           </div>
         </div>
       </div>
@@ -310,7 +317,7 @@ const styles = {
     top: '7px',
     right: '9px',
     padding: '10px 15px',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#333fff',
     borderRadius: '10px',
     boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
     zIndex: 10,
@@ -318,7 +325,13 @@ const styles = {
   longLatText: {
     margin: '5px 0',
     fontSize: '14px',
-    color: '#333333',
+    color: '#FFFFF0',
+  },
+  longLatTextSkibidi: {
+    margin: '5px 0',
+    fontSize: '15px',
+    color: '#FFFFF0',
+    textDecorationLine: 'underline',
   },
   sidebarBase: {
     position: 'absolute',

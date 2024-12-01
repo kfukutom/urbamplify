@@ -32,6 +32,7 @@ body {
   --secondary-text-color: #ffffff;
   --toggle-bg: #f0eb9d;
   --toggle-fg: #ffd000;
+  --home-bg: white;
 }
 
 html {
@@ -40,7 +41,7 @@ html {
 
 
 [data-theme="dark"] {
-  --background-color: #031525;
+  --background-color: #000000;
   --hover-bg: #b9cae343;
   --foreground-color: #567aff;
   --primary-text-color: #f6f6f6;
@@ -51,6 +52,7 @@ html {
   --michigan-blue: #00274c;
   --demo-color1: rgb(248, 248, 197);
   --bg-about1: #e8e8e8;
+  --home-bg: #0a0a0a;
 }
 [data-theme="dark"]{
   --demo-color2: rgb(61, 52, 52);
