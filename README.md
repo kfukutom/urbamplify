@@ -1,7 +1,7 @@
 Landing Page:
 ![skibidi](./demo/ui-new.png)
 
-![hi](./demo/lockedin.png)
+![hi](./demo/popup-ui2.png)
 
 Main Software:
 ![skibidi-toilet](./demo/ui-software.png)
