@@ -74,10 +74,14 @@ const Auth = ({ isDark }) => {
     >
       {loading ? (
         <div style={styles.loadingIcon}>
+          <div className="header-line"></div>
+          <div className="sub-header-line"></div>
           <SyncLoader color="#333fff" loading={loading} size={15} />
         </div>
       ) : (
         <>
+          <div className="header-line"></div>
+          <div className="sub-header-line"></div>
           <h2 className="form-title">
             urb<span style={{ color: '#333fff', fontWeight: 'bold' }}>amplify&nbsp;</span>
             <span style={{ fontSize: 12 }}>v1.2.2</span>

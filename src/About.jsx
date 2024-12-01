@@ -8,16 +8,17 @@ import githubImage from './assets/github.png';
 import headerImage from './assets/updated_header.svg';
 import carSvg from './assets/car-2.svg';
 import productDemo1 from './assets/demo1.png';
+import relativeSvg from './assets/hammer-2.svg';
 
 export const About = ({ isDark }) => {
   const navigate = useNavigate();
   const [isInView, setIsInView] = useState(false);
   const demoRef = useRef(null);
 
-  // Navigate to Auth page
+
+  
   const navigateToAuth = () => navigate('/auth');
 
-  // Intersection Observer for sliding in the image
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -26,7 +27,7 @@ export const About = ({ isDark }) => {
         }
       },
       {
-        threshold: 0.1, // Trigger when 10% of the element is visible
+        threshold: 0.1, // 10% image threshold WORKS!!
       }
     );
 
@@ -43,14 +44,15 @@ export const About = ({ isDark }) => {
 
   return (
     <div className="about-page" data-theme={isDark ? 'dark' : 'light'}>
-      <div className="spacer"></div>
-
+      <div className="header-line"></div>
+      <div className="sub-header-line"></div>
       <section className="about-container">
         <div className="left-content">
           <h1>
             <span className="highlight">Fund More</span><br />
             <span className="opposing">Build More.</span>
           </h1>
+          <p className="opposing-below"><img className="relative-svg" src={relativeSvg} alt="dashboard-alt"/>built by & for changemakers.</p>
         </div>
         <div className="right-content">
           <p className="right-text">
@@ -86,6 +88,8 @@ export const About = ({ isDark }) => {
           className={`demo-image1 ${isInView ? 'slide-in' : ''}`}
           ref={demoRef}
         />
+
+        {/* Product Demo 2 */}
       </section>
 
       <section className="workflow-div">
@@ -110,8 +114,10 @@ export const About = ({ isDark }) => {
       
       <footer className="footer">
         <div className="footer-container">
-          <h2 className="footer-title">Join the Urbamplify Waitlist 🚀</h2>
-          <p className="skibidi-footer">urban changemakers | technologists | data analysts | people </p>
+          <h2 className="footer-title">Join the Urbamplify Waitlist 🚀
+            {/*<img src={carSvg} alt="car-skibidi" className="car-skibidi" />*/}
+          </h2>
+          <p className="skibidi-footer"> we are urban <span className="bold-skibidi">changemakers</span>. </p>
           <div className="subscribe-container">
             <input 
               type="email" 
