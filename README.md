@@ -1,6 +1,8 @@
 Landing Page:
 ![skibidi](./demo/ui-demo.png)
 
+![hi](./demo/demo-session.png)
+
 Main Software:
 ![skibidi-toilet](./demo/ui-software.png)
 
