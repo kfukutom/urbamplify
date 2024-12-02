@@ -13,6 +13,7 @@
     "@mapbox/mapbox-gl-draw": "^1.4.3",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.5.0",
+    "chart.js": "^4.4.7",
     "dotenv": "^16.4.5",
     "firebase": "^11.0.1",
     "framer-motion": "^11.12.0",

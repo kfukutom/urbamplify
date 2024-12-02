@@ -1,22 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Chart from 'chart.js/auto';
 import './screen-styles/About.css';
 
 // Local image dependencies
 import linkedinImage from './assets/linkedin.png';
 import githubImage from './assets/github.png';
 import headerImage from './assets/updated_header.svg';
-import carSvg from './assets/car-2.svg';
+import amazonLogo from './assets/github.png';
+import michiganVC from './assets/v1.png';
 import productDemo1 from './assets/demo1.png';
 import relativeSvg from './assets/hammer-2.svg';
+import engineeringLogo from './assets/michigan_eng.jpg';
+import taubmanLogo from './assets/taubman.png';
+import nycLogo from './assets/nyc_edc.png';
+import driveCapital from './assets/drive.webp';
+import cornellTech from './assets/ctech.png';
+import boundlessLogo from './assets/boundlessventures.png';
 
 export const About = ({ isDark }) => {
   const navigate = useNavigate();
   const [isInView, setIsInView] = useState(false);
   const demoRef = useRef(null);
+  const chartRef = useRef(null);
 
-
-  
   const navigateToAuth = () => navigate('/auth');
 
   useEffect(() => {
@@ -27,7 +34,7 @@ export const About = ({ isDark }) => {
         }
       },
       {
-        threshold: 0.1, // 10% image threshold WORKS!!
+        threshold: 0.1,
       }
     );
 
@@ -40,6 +47,66 @@ export const About = ({ isDark }) => {
         observer.unobserve(demoRef.current);
       }
     };
+  }, []);
+
+  useEffect(() => {
+    // Chart.js script, make sure to properly render, destroy, and cleanup the chart
+    if (chartRef.current) {
+      const ctx = chartRef.current.getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          datasets: [{
+            label: 'Monthly Active Users',
+            data: [12000, 19000, 25000, 34000, 42000, 50000],
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1,
+            fill: false
+          }, {
+            label: 'Revenue ($K)',
+            data: [2450, 10080, 11120, 25180, 41250, 88320],
+            borderColor: 'rgb(255, 99, 132)',
+            tension: 0.1,
+            fill: false
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                color: 'rgba(255, 255, 255, 0.7)'
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              }
+            },
+            x: {
+              ticks: {
+                color: 'rgba(255, 255, 255, 0.7)'
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              labels: {
+                color: 'rgba(255, 255, 255, 0.7)'
+              }
+            }
+          }
+        }
+      });
+
+      return () => {
+        chart.destroy();
+      };
+    }
   }, []);
 
   return (
@@ -77,7 +144,22 @@ export const About = ({ isDark }) => {
       </section>
 
       <section className="about-ken">
-        <h1 className="ut-header">Product's Focuses 🎯</h1>
+        <div className="logo-ribbon">
+          <div className="logo-ribbon-content">
+            {[...Array(3)].map((_, index) => (
+              <React.Fragment key={index}>
+                <img src={amazonLogo} alt="Amazon" className="logo" />
+                <img src={engineeringLogo} alt="Engineering" className="logo" />
+                <img src={nycLogo} alt="NYCEDC" className="logo" />
+                <img src={driveCapital} alt="Drive Capital Chicago" className="logo" />
+                <img src={taubmanLogo} alt="Taubman" className="logo" />
+                <img src={michiganVC} alt="MVC Capital" className="logo" />
+                <img src={cornellTech} alt="Cornell Tech" className="logo" />
+                <img src={boundlessLogo} alt="Boundless Ventures" className="logo" />
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="product-demo">
@@ -88,36 +170,23 @@ export const About = ({ isDark }) => {
           className={`demo-image1 ${isInView ? 'slide-in' : ''}`}
           ref={demoRef}
         />
-
-        {/* Product Demo 2 */}
       </section>
 
       <section className="workflow-div">
-        <h1 className="workflow-header">Workflow Tool for Faster Analysis</h1>
+        <h2 className="workflow-header">We Value Your Experience & Success</h2>
         <p className="workflow-sub">
-          Optimized for faster analysis, improved decision-making, and enhanced productivity.
+          Tracking our growth and user engagement
         </p>
         <hr className="workflow-hr" />
-
-        {/* YouTube Video Embed */}
-        <div className="video-container">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/h1oGkPLUI_k"
-            title="Urbamplify in Action"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+        <div className="chart-container">
+          <canvas ref={chartRef}></canvas>
         </div>
       </section>
       
       <footer className="footer">
         <div className="footer-container">
-          <h2 className="footer-title">Join the Urbamplify Waitlist 🚀
-            {/*<img src={carSvg} alt="car-skibidi" className="car-skibidi" />*/}
-          </h2>
-          <p className="skibidi-footer"> we are urban <span className="bold-skibidi">changemakers</span>. </p>
+          <h2 className="footer-title">Join the Urbamplify Waitlist 🚀</h2>
+          <p className="skibidi-footer"> we are all urban <span className="bold-skibidi">changemakers</span>. </p>
           <div className="subscribe-container">
             <input 
               type="email" 

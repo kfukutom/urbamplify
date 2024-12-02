@@ -7,13 +7,10 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
-/* Section Styling */
 section {
   width: 100%;
   padding: 40px 20px;
   box-sizing: border-box;
-  background-color: var(--home-bg);
   transition: 0.5s ease-in-out;
 }
 
@@ -25,7 +22,7 @@ section {
   min-height: 400px;
   opacity: 0;
   animation: fadeInContainer 2s ease-in-out forwards;
-  margin-top: 2750px; 
+  margin-top: 2950px; 
   margin-bottom: 0px;
 }
 
@@ -50,15 +47,18 @@ section {
 }
 
 .opposing-below {
-  color: #888;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: #6065f5;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Verdana';
   position: relative;
-  margin-left: 25px;
+  margin-left: 30px;
 
 
   margin-top: -32px;
   transition: color 0.5s ease-in-out;
   font-size: 1rem;
+}
+.opposing-below[data-theme='dark']{
+  color: white;
 }
 .relative-svg {
   position: relative;
@@ -80,7 +80,6 @@ section {
   transition: color 0.5s ease-in-out;
 }
 
-/* Button Styling */
 .demo-button {
   background-color: #3b57ff;
   color: #ffffff;
@@ -89,44 +88,33 @@ section {
   border-radius: 5px;
   font-size: 1.2em;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, filter 0.3s ease-in-out;
   margin-top: 20px;
 }
 
 .demo-button:hover {
   background-color: #3549e6;
+  transform: translateY(-5px);
+  filter: brightness(1.2);
 }
 
-/* Title Styling */
 .title-p, .urbantech {
   font-weight: bold;
   color: var(--demo-color1);
   transition: color 0.5s ease;
-  text-decoration: underline;
+  text-decoration: none;
 }
-
-/* App Wrapper */
 .app {
   transition: background-color 0.5s ease;
 }
 
-/* about ken Section */
-.about-ken {
-  display: flex;
-  align-items: center;
-  background-color: #000038; /* alternative: 4a4aac;*/
-  padding: 40px 20px;
-  height: 40vh;
-  margin-top: 0;
-  animation: fadeInContainer 5.1s ease-in-out forwards;
-}
 
 .ut-header {
   color: white;
-  font-size: 2em;
+  font-size: 2.5em;
   font-weight: bold;
-  text-align: left;
-  margin-left: 30px;
+  text-align: center;
+  margin-bottom: 5px;
 }
 .ut {
   color: #3b57ff;
@@ -144,40 +132,87 @@ section {
 }
 
 .workflow-div {
-  background-color: #000038;
-  min-height: 50vh;
-  padding: 40px 20px;
+  background: linear-gradient(135deg, #000038, #333665);
+  min-height: 60vh;
+  width: 100%;
+  padding: 60px 40px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .workflow-header {
-  color: white;
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
 }
 
 .workflow-sub {
-  font-size: 1.3em;
-  color: rgb(248, 248, 197);
-  max-width: 80%;
-  margin: 0 auto;
+  font-size: 1.4rem;
+  color: rgba(248, 248, 197, 0.9);
+  max-width: 70%;
+  margin-bottom: -10px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
 }
 
 .workflow-hr {
-  width: 45%;
-  margin: 20px auto;
-  border: 1px solid rgb(192, 226, 254);
+  width: 60px;
+  margin-top: 25px;
+  margin-bottom: -10px;
+  border: none;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #c0e2fe, transparent);
+  position: relative;
+  z-index: 2;
 }
 
-/* Video Container */
-.video-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  margin-top: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.chart-container:hover {
+  background: rgba(206, 201, 201, 0.1);
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+  /* zoom 1.25 */
+  transform: scale(1.015);
 }
 
-/* Footer Styling */
+@media (max-width: 768px) {
+  .workflow-header {
+    font-size: 2rem;
+  }
+  
+  .workflow-sub {
+    font-size: 1.2rem;
+    max-width: 90%;
+  }
+
+  .chart-container {
+    height: 300px;
+
+  }
+}
+
 .footer-text {
   font-size: 1em;
   color: var(--primary-text-color);
@@ -383,9 +418,11 @@ section {
   position: relative;
   width: 100%;
   overflow: hidden;
+  opacity: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: fadeInContainer 2s ease-in-out forwards;
 }
 
 .header-image {
@@ -422,8 +459,7 @@ section {
   transform: translateX(100%);
   opacity: 0; 
   transition: transform 1s ease-out, opacity 1s ease-out;
-
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .52);
 }
 .demo-image1 [data-theme='dark'] {
   max-width: 700px;
@@ -436,9 +472,85 @@ section {
   transition: transform 1s ease-out, opacity 1s ease-out;
   box-shadow: 0 0 10px white;
 }
+.demo-image1:hover {
+  transform: translateX(100%);
+  opacity: 1;
+}
 
 /* Slide-in skibidi animation class should be fixed... */
 .demo-image1.slide-in {
   transform: translateX(0);
   opacity: 1;
+}
+
+/* about ken fixed */
+.about-ken {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #000038, #333665);
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite;
+  padding: 60px 20px;
+  margin-top: 0;
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 45%;
+  }
+}
+
+.logo-ribbon {
+  width: 100vw;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.logo-ribbon-content {
+  display: flex;
+  gap: 8rem;
+  animation: scroll 45s linear infinite;
+}
+
+.logo-ribbon-content::after {
+  content: "";
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.logo {
+  height: 110px;
+  width: 110px;
+  display: inline-block;
+}
+
+.logo-mvc {
+  height: auto;
+  width: 140px;
+  display: inline-block;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .logo-ribbon-content {
+    gap: 4rem;
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

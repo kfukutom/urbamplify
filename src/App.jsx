@@ -15,7 +15,7 @@ export const App = () => {
     return savedTheme ? JSON.parse(savedTheme) : false;
   });
 
-  const location = useLocation(); // Get current route
+  const location = useLocation(); // should get current route
 
   useEffect(() => {
     localStorage.setItem("isDark", JSON.stringify(isDark));
@@ -27,7 +27,7 @@ export const App = () => {
 
   return (
     <div data-theme={isDark ? "dark" : "light"} className="App"> 
-      {/* Conditionally render Logo */}
+      {/* skibidi themeing, schema done */}
       {location.pathname !== '/dashboard' && <Logo />}
       
       <Toggle isChecked={isDark} handleChange={handleChange} />

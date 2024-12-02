@@ -12,6 +12,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: 0.5s ease-in-out;
+  z-index: 4;
 }
 
 .logo-container, .logo-container * {

@@ -18,7 +18,20 @@ html {
   overflow: hidden;
 }
 
-/* Animated gradient background */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  /* remove borders */
+  border: none;
+
+  z-index: 1;
+  filter: blur(6px);
+}
+
 .Home::before {
   content: "";
   position: absolute;
@@ -32,19 +45,13 @@ html {
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
   opacity: 0.1;
-  z-index: -1;
+  z-index: 2;
 }
 
 @keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 #tsparticles {
@@ -53,7 +60,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: 3;
 }
 
 .dimmed-background {
@@ -61,13 +68,12 @@ html {
   transition: background-color 0.5s ease;
 }
 
-/* Title Styling */
 .title {
-  color: var(--primary-text-color);
+  color: var(--alt-text-color);
   margin-bottom: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
-  z-index: 1;
+  z-index: 4;
   font-size: 2.5rem;
   text-align: center;
   opacity: 0;
@@ -80,8 +86,6 @@ html {
     transform: translateY(0);
   }
 }
-
-/* Typewriter and Cursor Animations */
 .typewriter {
   color: var(--toggle-bg);
   font-weight: bold;
@@ -96,12 +100,8 @@ html {
 }
 
 @keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 /* Button container */
@@ -112,6 +112,8 @@ html {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease-out 0.5s forwards;
+  z-index: 4;
+  position: relative;
 }
 
 @keyframes fadeInUp {
@@ -130,7 +132,7 @@ html {
   height: 30px;
   cursor: pointer;
   transition: transform 0.3s ease, filter 0.3s ease;
-  z-index: 1;
+  z-index: 4;
 }
 
 .linkedin-btn {
@@ -146,14 +148,12 @@ html {
   transform: translateY(-5px);
   filter: brightness(1.2);
 }
-
-/* Version text */
 .michigan {
-  color: var(--primary-text-color);
+  color: whitesmoke;
   position: absolute;
   bottom: 20px;
   right: 33px;
   font-size: 14px;
   opacity: 0.7;
-  z-index: 1;
+  z-index: 4;
 }
