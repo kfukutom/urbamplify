@@ -1,0 +1,42 @@
+.logo-ribbon {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.logo-ribbon-content {
+  display: flex;
+  gap: 8rem;
+  animation: scroll 30s linear infinite;
+}
+
+.logo {
+  height: 75px;
+  width: 75px;
+  display: inline-block;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .logo-ribbon-content {
+    gap: 4rem;
+  }
+  
+  .logo {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

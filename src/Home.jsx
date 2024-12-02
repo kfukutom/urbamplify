@@ -129,13 +129,12 @@ export const Home = ({ isDark }) => {
       className={`Home ${isDimmed ? "dimmed-background" : ""}`}
       data-theme={isDark ? "dark" : "light"}
     >
+      <video autoPlay loop muted className="background-video">
+        <source src="https://video.wixstatic.com/video/6078b9_32212238f4a44b81960227b0cb681027/720p/mp4/file.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <div className="header-line"></div>
       <div className="sub-header-line"></div>
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={particlesOptions}
-      />
       <h1 className="title">
         urban analytics platform for <span className="typewriter"></span><span className="cursor">|</span>
       </h1>

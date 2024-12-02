@@ -2,13 +2,15 @@
   position: absolute;
   top: 2em;
   right: 2em;
+  z-index: 4;
 }
 
 .toggle-logo {
   position: absolute; 
-  top: 0.56em; /* Vertical position */
-  right: 1em; /* Horizontal position */
-  font-size: 1.6em; /* Adjust size as needed */
+  top: 0.56em;
+  right: 1em; 
+  
+  font-size: 1.6em; /* I fixed this, im goated. */
   z-index: 1; 
   transition: 250ms ease-in-out;
 }
