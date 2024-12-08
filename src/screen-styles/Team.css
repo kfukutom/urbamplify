@@ -1,0 +1,74 @@
+.team {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2vw;
+}
+
+.team-header {
+  text-align: left;
+  font-size: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+.team-member {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4rem;
+}
+
+.member-image {
+  flex: 0 0 40%;
+}
+
+.member-image img {
+  width: 20rem;
+  height: auto;
+  object-fit: cover;
+}
+
+.member-info {
+  flex: 1;
+}
+
+.member-name {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.member-role {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.member-bio {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.linkedin-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #0077B5;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.linkedin-link:hover {
+  background-color: #005f8d;
+}
+
+@media (max-width: 768px) {
+  .team-member {
+    flex-direction: column;
+  }
+
+  .member-image {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}

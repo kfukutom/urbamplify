@@ -1,8 +1,8 @@
 import "./Toggle.css";
 
-export const Toggle = ({ handleChange, isChecked }) => {
+export const Toggle = ({ handleChange, isChecked, isAbout }) => {
   return (
-    <div className="parent-container">
+    <div className={`parent-container ${isAbout ? "about-style" : ""}`}>
       <div className="toggle-container">
         <input
           type="checkbox"

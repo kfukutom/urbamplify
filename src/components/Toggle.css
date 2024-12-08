@@ -1,14 +1,25 @@
 .toggle-container {
   position: absolute;
   top: 2em;
-  right: 2em;
+  right: 4em; /* Shifted 1em to the left from the original 2em */
   z-index: 4;
+}
+
+.hamburger-icon,
+.close-icon {
+  color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: all var(--transition-speed) ease;
 }
 
 .toggle-logo {
   position: absolute; 
   top: 0.56em;
-  right: 1em; 
+  right: 2em;
   
   font-size: 1.6em; /* I fixed this, im goated. */
   z-index: 1; 
