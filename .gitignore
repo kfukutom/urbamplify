@@ -6,13 +6,13 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+.env
 #README.md
 
 node_modules
 dist
 dist-ssr
 *.local
-.env
 .DS_Store
 .gitignore
 firebaseConfig.js
