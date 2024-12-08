@@ -1,13 +1,95 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import './screen-styles/index.css';
-import { App } from './App.jsx';
+import React, { useState, useEffect, useRef } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { Toggle } from './components/Toggle';
+import { Logo } from './components/Logo';
+import './screen-styles/App.css';
+import './components/Ribbon.css';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter basename="/urbamplify">
-      <App />
-    </BrowserRouter>
-  </StrictMode>
-);
+import Home from './Home';
+import About from './About';
+import Auth from './Auth';
+import Dashboard from './Dashboard';
+import Documentation from './Docs';
+import Team from './Team';
+
+export const App = () => {
+  const [isDark, setIsDark] = useState(() => {
+    const savedTheme = localStorage.getItem("isDark");
+    return savedTheme ? JSON.parse(savedTheme) : false;
+  });
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem("isDark", JSON.stringify(isDark));
+  }, [isDark]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleChange = () => {
+    setIsDark((prev) => !prev);
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const navigateTo = (path) => {
+    navigate(`/urbamplify${path}`);
+    setMenuOpen(false);
+  };
+
+  return (
+    <div data-theme={isDark ? "dark" : "light"} className="App"> 
+      <Toggle 
+        isAbout={location.pathname === '/urbamplify/about'} 
+        isChecked={isDark}
+        handleChange={handleChange} 
+      />
+      <div className="menu-container" ref={menuRef}>
+        <button 
+          className="menu-button" 
+          onClick={toggleMenu}
+          data-theme={isDark ? 'dark' : 'light'}
+        >
+          {menuOpen ? <span className="close-icon">×</span> : <span className="hamburger-icon">☰</span>}
+        </button>
+        <div className={`menu ${menuOpen ? 'open' : ''}`} data-theme={isDark ? 'dark' : 'light'}>
+          <button onClick={() => navigateTo('/auth')} className="download-button" data-theme={isDark ? 'dark' : 'light'}>Book a Demo</button>
+          <ul className="menu-items" data-theme={isDark ? 'dark' : 'light'}>
+            <li onClick={() => navigateTo('/team')}>Our Team</li>
+            <li onClick={() => navigateTo('/documentation')}>Documentation</li>
+            <li>Community</li>
+            <li>Support</li>
+          </ul> 
+        </div>
+      </div>
+
+      <Routes>
+        <Route path="/urbamplify/" element={<Home isDark={isDark} handleChange={handleChange} />} />
+        <Route path="/urbamplify/about" element={<About isDark={isDark} handleChange={handleChange} />} />
+        <Route path="/urbamplify/auth" element={<Auth isDark={isDark} handleChange={handleChange} />} />
+        <Route path="/urbamplify/signup" element={<Auth isDark={isDark} handleChange={handleChange} />} />
+        <Route path="/urbamplify/forgot-password" element={<Auth isDark={isDark} handleChange={handleChange} />} />
+        <Route path="/urbamplify/dashboard" element={<Dashboard isDark={isDark} handleChange={handleChange} />} />
+        <Route path="/urbamplify/documentation" element={<Documentation isDark={isDark} handleChange={handleChange} />} />
+        <Route path="/urbamplify/team" element={<Team isDark={isDark} handleChange={handleChange} />} />
+      </Routes>
+    </div>
+  );
+};
+
+export default App;
