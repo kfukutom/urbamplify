@@ -5,7 +5,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import './screen-styles/Hamburger.css';
 import { SyncLoader } from 'react-spinners';
-import { getAuth } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const auth = getAuth();
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2Z1a3V0b20iLCJhIjoiY20yb3dlZHk0MGxjZzJrcHVleHE4cmV2cyJ9.qLU2UGh3fxhU7qvQuZskxw';
@@ -25,7 +25,6 @@ const Dashboard = ({ isDark, user }) => {
   const [showInitialScreen, setShowInitialScreen] = useState(true);
   const [sessionLink, setSessionLink] = useState('');
   const [isDrawMode, setIsDrawMode] = useState(false);
-
   const mapContainer = useRef(null);
   const mapInstance = useRef(null);
   const drawInstance = useRef(null);
@@ -34,6 +33,18 @@ const Dashboard = ({ isDark, user }) => {
     setLoading(true);
     setMenuActive(true);
     setTimeout(() => setLoading(false), 4500);
+  }, []);
+
+  useEffect(() => {
+    const checkAuthentication = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = '/auth';
+      } else {
+        setLoading(false);
+      }
+    });
+
+    return () => checkAuthentication();
   }, []);
 
   useEffect(() => {
@@ -101,19 +112,11 @@ const Dashboard = ({ isDark, user }) => {
       alert('Please enter a valid session name.');
       return;
     }
-    // Case when link contains a space.
     if (sessionLink.includes(' ')) {
       alert('Session link cannot contain spaces.');
       return;
     }
     const uniqueLink = (`urbamplify.net/${sessionLink}`);
-    // Store unique link in firestore.
-    /*const useRef = db.collection('sessions').doc(uniqueLink);
-    useRef.set({
-      sessionLink: uniqueLink,
-      createdBy: user.email,
-      createdAt: new Date(),
-    });*/
     setShowInitialScreen(false);
     console.log(`Private session link created: ${uniqueLink}`);
   };
@@ -129,12 +132,8 @@ const Dashboard = ({ isDark, user }) => {
       );
       const data = await response.json();
       if (data.features && data.features.length > 0) {
-        const neighborhood = data.features.find((feature) =>
-          feature.place_type.includes('neighborhood') || feature.place_type.includes('locality')
-        );
-        const place = data.features.find((feature) =>
-          feature.place_type.includes('place')
-        );
+        const neighborhood = data.features.find((feature) => feature.place_type.includes('neighborhood') || feature.place_type.includes('locality'));
+        const place = data.features.find((feature) => feature.place_type.includes('place'));
         if (neighborhood) {
           setCityName(neighborhood.text);
         } else if (place) {
@@ -219,7 +218,6 @@ const Dashboard = ({ isDark, user }) => {
   return loading ? (
     <div style={styles.loadingIcon}>
       <SyncLoader color="#333fff" loading={loading} size={15} />
-      {/*<p style={styles.loadingText}> Loading...</p>*/}
       <div className="header-line"></div>
       <div className="sub-header-line"></div>
     </div>
@@ -232,12 +230,7 @@ const Dashboard = ({ isDark, user }) => {
             <p>Would you like to create a private, shareable work session?</p>
             <div className="link-input-container">
               <span className="link-prefix">urbamplify.net/</span>
-                <input
-                  type="text"
-                  alue={sessionLink}
-                  onChange={(e) => setSessionLink(e.target.value)}
-                  placeholder="custom ID (REQUIRED)"
-                />
+              <input type="text" value={sessionLink} onChange={(e) => setSessionLink(e.target.value)} placeholder="custom ID (REQUIRED)" />
             </div>
             <button className="create-session" onClick={handleCreateSession}>Create Session</button>
             <button className="deny-session" onClick={handleDismiss}>No thanks!</button>
@@ -246,13 +239,13 @@ const Dashboard = ({ isDark, user }) => {
       )}
       <div style={styles.longLatContainer}>
         <p style={styles.longLatText}>
-          || Longitude: <strong>{center[0].toFixed(4)}</strong>
+          <span style={styles.icon}>🌐</span> Longitude: <strong style={styles.strongText}>{center[0].toFixed(4)}</strong>
         </p>
         <p style={styles.longLatText}>
-          || Latitude: <strong>{center[1].toFixed(4)}</strong>
+          <span style={styles.icon}>🌍</span> Latitude: <strong style={styles.strongText}>{center[1].toFixed(4)}</strong>
         </p>
         <p style={styles.longLatTextSkibidi}>
-          🗽 We're Currently in: <strong>{cityName || 'Unknown'}</strong>
+          <span style={styles.icon}>🗽</span> Current Location: <strong style={styles.strongText}>{cityName || 'Unknown'}</strong>
         </p>
       </div>
       <div className="profile-icon"></div>
@@ -368,24 +361,39 @@ const styles = {
   },
   longLatContainer: {
     position: 'absolute',
-    top: '7px',
-    right: '9px',
-    padding: '10px 15px',
-    backgroundColor: '#333fff',
-    borderRadius: '10px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+    top: '5px',
+    right: '5px',
+    padding: '20px 25px',
+    backgroundColor: 'rgba(51, 51, 255, 0.9)',
+    borderRadius: '15px',
+    boxShadow: '0 6px 12px rgba(0,0,0,0.2)',
     zIndex: 10,
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    backdropFilter: 'blur(20px)',
   },
   longLatText: {
-    margin: '5px 0',
-    fontSize: '14px',
-    color: '#FFFFF0',
+    margin: '8px 0',
+    fontSize: '16px',
+    color: '#FFFFFF',
+    fontWeight: '500',
+    display: 'flex',
+    alignItems: 'center',
   },
   longLatTextSkibidi: {
-    margin: '5px 0',
-    fontSize: '15px',
-    color: '#FFFFF0',
-    textDecorationLine: 'underline',
+    margin: '12px 0 4px',
+    fontSize: '18px',
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    borderTop: '1px solid rgba(255, 255, 255, 0.3)',
+    paddingTop: '12px',
+  },
+  icon: {
+    marginRight: '8px',
+    fontSize: '18px',
+  },
+  strongText: {
+    fontWeight: 'bold',
+    marginLeft: '5px',
   },
   sidebarBase: {
     position: 'absolute',
@@ -439,7 +447,7 @@ const styles = {
   heading: {
     fontSize: '20px',
     fontWeight: 'bold',
-    marginTop: '25px',
+    marginTop: '32.555px',
     marginBottom: '10px',
     color: '#333fff',
   },
@@ -488,17 +496,6 @@ const styles = {
   cityTitle: {
     marginBottom: '10px',
     fontWeight: 'bold',
-  },
-  icon: {
-    position: 'absolute',
-    top: 'calc(15px + 85px)',
-    right: '15px',
-    padding: '10px 15px',
-    backgroundColor: '#ffffff',
-    borderRadius: '8px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-    zIndex: 10,
-    marginTop: '15px',
   },
   button: {
     width: '100%',
