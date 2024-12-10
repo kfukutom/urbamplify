@@ -5,7 +5,7 @@ export { useNavigate } from 'react-router-dom';
 export { default as SocialLogin } from '../src/components/SocialLogin';
 export { default as InputField } from '../src/components/InputField';
 export { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
-export { auth, resetPassword as firebaseResetPassword } from '../src/firebase-config/firebaseConfig';
+export { auth, resetPassword as firebaseResetPassword } from '../backend/firebase-config/firebaseConfig';
 import * as SyncLoader from 'react-spinners';
 export { SyncLoader };
 export { default as axios } from 'axios';

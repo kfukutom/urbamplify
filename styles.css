@@ -1,3 +1,4 @@
+/* Define global CSS variables */
 * {
   margin: 0;
   padding: 0;
@@ -16,8 +17,6 @@ body {
   overflow-y: scroll;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
-
-/* Define global CSS variables */
 :root {
   --background-color: white;
   --foreground-color: #003cff;

@@ -1,23 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Chart from 'chart.js/auto';
-import './screen-styles/About.css';
+import '../screen-styles/About.css';
 
 // Local image dependencies
-import linkedinImage from './assets/linkedin.png';
-import githubImage from './assets/github.png';
-import headerImage from './assets/updated_header.svg';
-import amazonLogo from './assets/github.png';
-import michiganVC from './assets/v1.png';
-import productDemo1 from './assets/demo1.png';
-import relativeSvg from './assets/hammer-2.svg';
-import engineeringLogo from './assets/michigan_eng.jpg';
-import taubmanLogo from './assets/taubman.png';
-import nycLogo from './assets/nyc_edc.png';
-import driveCapital from './assets/drive.webp';
-import cornellTech from './assets/ctech.png';
-import boundlessLogo from './assets/boundlessventures.png';
-import logo from './favicon/value-amplify.svg';
+import linkedinImage from '../assets/linkedin.png';
+import githubImage from '../assets/github.png';
+import headerImage from '../assets/updated_header.svg';
+import amazonLogo from '../assets/github.png';
+import michiganVC from '../assets/v1.png';
+import productDemo1 from '../assets/demo1.png';
+import relativeSvg from '../assets/hammer-2.svg';
+import engineeringLogo from '../assets/michigan_eng.jpg';
+import taubmanLogo from '../assets/taubman.png';
+import nycLogo from '../assets/nyc_edc.png';
+import driveCapital from '../assets/drive.webp';
+import cornellTech from '../assets/ctech.png';
+import boundlessLogo from '../assets/boundlessventures.png';
+import logo from '../favicon/value-amplify.svg';
 
 export const About = ({ isDark }) => {
   const navigate = useNavigate();

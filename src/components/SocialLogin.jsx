@@ -4,7 +4,7 @@ import appleSvg from '../assets/apple.svg';
 import googleSvg from '../assets/google.svg';
 import { StyleSheet } from 'react-native';
 import { signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider } from "../firebase-config/firebaseConfig";
+import { auth, googleProvider } from "../../backend/firebase-config/firebaseConfig";
 
 const SocialLogin = () => {
   const [email, setEmail] = useState('');

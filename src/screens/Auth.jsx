@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import SocialLogin from "./components/SocialLogin";
-import InputField from "./components/InputField";
+import SocialLogin from "../components/SocialLogin";
+import InputField from "../components/InputField";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { auth, resetPassword as firebaseResetPassword } from "./firebase-config/firebaseConfig";
+import { auth, resetPassword as firebaseResetPassword } from "../../backend/firebase-config/firebaseConfig";
 import { SyncLoader } from 'react-spinners';
 import axios from 'axios';
-import "./screen-styles/Auth.css";
+import "../screen-styles/Auth.css";
 
 const Auth = ({ isDark }) => {
   const [email, setEmail] = useState('');

@@ -1,6 +1,6 @@
 import React from 'react';
-import './screen-styles/Team.css';
-import kenHeadshot from './assets/ken_headshot.png'
+import '../screen-styles/Team.css';
+import kenHeadshot from '../assets/ken_headshot.png'
 
 const Team = () => {
   const teamMembers = [

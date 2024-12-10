@@ -11,6 +11,7 @@ lerna-debug.log*
 
 node_modules
 dist
+demo
 dist-ssr
 *.local
 .DS_Store
@@ -28,3 +29,8 @@ stronk.png
 *.njsproj
 *.sln
 *.sw?
+
+# Indexes
+index.html
+index.js
+index.ts

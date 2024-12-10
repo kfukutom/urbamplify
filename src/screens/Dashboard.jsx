@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
-import './screen-styles/Hamburger.css';
+import '../screen-styles/Hamburger.css';
 import { SyncLoader } from 'react-spinners';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
