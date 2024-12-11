@@ -1,38 +1,50 @@
-Landing Page:
-![skibidi](./demo/ui-new.png)
+# Urbamplify
 
-![hi](./demo/popup-ui2.png)
+Urbamplify is a full-stack platform designed to explore and define the concept of `urban tech`. It provides a free, data-driven consultation service for users by leveraging computational social science methodologies and advanced spatial analytics. The platform evaluates key factors such as infrastructure, economic conditions, and demographic data to generate neighborhood-level insights, assisting users in making informed decisions about business ventures.
 
-Main Software:
-![skibidi-toilet](./demo/ui-software.png)
+---
 
-This project is my journey in learning software development fundamentals whilst applying computational social science programming tools! Some key goals of this project include:
+## Project Objectives
 
-- Establishing a clear **Design Hierarchy** for intuitive navigation
-- Enhancing **User Interface (UI) Experience** for seamless interaction
-- Deploying a productive **Agent-Based Model** to simulate a New York City borough environment
-- Blend passion for products that connect tangible and intangible, digital spaces.
-- Learn **D3.js**, along with implementing a MaplyAPI powered map.
-- Master **React/React Native/CSS Styling** and become proficient in front-end development.
+This project represents an application of computational tools and software development principles to the study of urban systems. The key objectives are:
 
-Project Premise ~
-I wanted to work on a product that defines `urban tech` for myself. Using agent-based modeling and advanced spatial analytics with Python's NetworkX and OSMnx libraries, our platform evaluates key factors—like local infrastructure, economic conditions, and demographic data—to generate a unique livelihood score for each area. Users can input financial details to estimate potential returns, helping them make data-driven decisions for successful business ventures in the right neighborhoods. And for the sake of the scope of the project, I'm narrowing it down to the attributes of Manhattan/New York City in their respective boroughs.
+- Develop a structured **design hierarchy** to ensure intuitive navigation and usability.
+- Enhance the **user interface (UI)** for seamless interaction and data visualization.
+- Implement **agent-based modeling** to simulate urban environments, focusing on Manhattan, New York City.
+- Apply **network analysis** concepts such as eigenvector centrality to evaluate neighborhood competitiveness.
+- Explore **reinforcement learning** for optimizing recommendations based on user input.
+- Integrate **Mapbox API** and **Google Places API** for mapping and location-based services.
 
-Also, contributions are welcome. If you'd like to help improve this project, comment on any issues, feel free to open a pull request or reach out: kfukutom@umich.edu
+This work also incorporates proficiency development in modern front-end technologies such as **React**, **React Native**, and **CSS**, alongside advanced visualization techniques using **D3.js**.
 
-To set up and run this project on your local device, follow these steps:
+---
 
-Ensure you have the following installed on your system:
-- [Node.js](https://nodejs.org/) (latest LTS version recommended)
-- npm (comes with Node.js)
+## Research Context
 
-### Installation
+Urban technology (urban tech) is an emerging interdisciplinary field that combines computational tools, social science methods, and urban studies to address challenges in urban environments. This project applies tools such as Python's **NetworkX** and **OSMnx** to analyze the spatial and network properties of urban areas. By focusing on Manhattan, Urbamplify provides a framework for evaluating urban neighborhoods based on quantitative metrics, such as a calculated **livelihood score**, that reflect infrastructure quality, economic potential, and demographic alignment.
 
-1. Clone the repository to your local machine:
+Users can input financial details to simulate potential returns, offering actionable insights for business planning and urban policy development.
+
+---
+
+## Tools and Technologies
+
+- **Node.js** and **TypeScript** for backend and application logic
+- **Firebase Authentication** for secure user management
+- **Mapbox API** and **Google Places API** for geospatial visualization
+- **React/React Native** for front-end development
+- **NetworkX** and **OSMnx** for network and spatial analysis
+
+---
+
+## Installation
+
+To set up and run the project locally:
+
+1. Clone the repository:
    ```bash
    git clone https://github.com/kfukutom/urbamplify
    cd urbamplify
+
    npm install
    npm run dev
-   ```
-That is all!
