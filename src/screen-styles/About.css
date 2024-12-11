@@ -49,7 +49,7 @@ section {
   color: #6065f5;
   font-weight: bold;
   position: relative;
-  margin-left: 30px;
+  margin-left: 35.0px;
 
 
   margin-top: -32px;
@@ -597,7 +597,7 @@ section {
   animation: fadeInContainer 2s ease-in-out forwards;
 }
 .demo2-content-container:hover {
-  transform: scale(1.15);
+  transform: scale(1.02);
   transition: transform 0.5s ease-in-out;
 }
 

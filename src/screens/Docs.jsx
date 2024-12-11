@@ -1,21 +1,22 @@
 import React from 'react';
+import Sidebar from '../components/Sidebar';
+import Content from '../components/Content';
 
-export const Documentation = () => {
-    return ( 
-        <div>
-            <p style={styles.skibid}>
-                Skibidi Toilet
-            </p>
-        </div>
-    );
-};
+function Documentation() {
+  return (
+    <div style={styles.app}>
+      <Sidebar />
+      <Content />
+    </div>
+  );
+}
 
 const styles = {
-    skibid: {
-        color: 'red',
-        fontSize: 20,
-        fontWeight: 'bold',
-    }
+  app: {
+    display: 'flex',
+    minHeight: '100vh',
+    fontFamily: 'Arial, sans-serif',
+  },
 };
 
 export default Documentation;

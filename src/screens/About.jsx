@@ -9,7 +9,7 @@ import githubImage from '../assets/github.png';
 import headerImage from '../assets/updated_header.svg';
 import amazonLogo from '../assets/github.png';
 import michiganVC from '../assets/v1.png';
-import productDemo1 from '../assets/demo1.png';
+import productDemo1 from '../assets/demo_ui_1.png';
 import relativeSvg from '../assets/hammer-2.svg';
 import engineeringLogo from '../assets/michigan_eng.jpg';
 import taubmanLogo from '../assets/taubman.png';
@@ -115,7 +115,7 @@ export const About = ({ isDark }) => {
             <span className="opposing">Build More.</span>
           </h1>
           <p className="opposing-below">
-            <img className="relative-svg" src={relativeSvg} alt="dashboard-alt" />
+            {/*<img className="relative-svg" src={relativeSvg} alt="dashboard-alt" />*/}
             built by and for changemakers.
           </p>
         </div>

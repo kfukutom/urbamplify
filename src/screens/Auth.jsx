@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SocialLogin from "../components/SocialLogin";
 import InputField from "../components/InputField";
-import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { auth, resetPassword as firebaseResetPassword } from "../../backend/firebase-config/firebaseConfig";
+import { signInWithEmailAndPassword, onAuthStateChanged, getIdToken } from "firebase/auth";
+import { auth, resetPassword as firebaseResetPassword } from "../../backend/firebase-config/firebaseConfig"
 import { SyncLoader } from 'react-spinners';
 import axios from 'axios';
 import "../screen-styles/Auth.css";
@@ -35,12 +35,25 @@ const Auth = ({ isDark }) => {
     setLoading(true);
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      await axios.post('/api/login', {
-        email: userCredential.user.email,
-        sessionToken: userCredential.user.refreshToken
+      const idToken = await getIdToken(userCredential.user);
+      
+      // Generate CSRF token (using firebase-config/backend)
+      const csrfToken = Math.random().toString(36).slice(2);
+      document.cookie = `csrfToken=${csrfToken}; path=/; secure; samesite=strict`;
+
+      const response = await axios.post('/sessionLogin', {
+        idToken: idToken,
+        csrfToken: csrfToken
+      }, {
+        withCredentials: true
       });
-      navigate("/dashboard");
-      console.log("Logged in successfully at ", new Date().toLocaleTimeString());
+
+      if (response.data.status === 'success') {
+        navigate("/dashboard");
+        console.log("Logged in successfully at ", new Date().toLocaleTimeString());
+      } else {
+        throw new Error('Session creation failed');
+      }
     } catch (err) {
       setError("Failed to log in. Please check your credentials.");
       console.error(err);
