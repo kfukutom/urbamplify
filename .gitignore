@@ -34,3 +34,6 @@ stronk.png
 index.html
 index.js
 index.ts
+
+# Environment Variables
+.env

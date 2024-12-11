@@ -15,6 +15,15 @@ function Sidebar() {
         <li style={styles.listItem}><a href="#navigating-documentation" style={styles.link}>Developer Guide</a></li>
         <li style={styles.listItem}><a href="#platform-components" style={styles.link}>Open-Source</a></li>
         <li style={styles.listItem}><a href="#user-guides" style={styles.link}>External</a></li>
+        <li style={styles.listHeader}><a href="#what-is-our-platform" style={styles.link}>III. Admins</a></li>
+        <li style={styles.listItem}><a href="#what-is-our-platform" style={styles.link}>Admin Guide</a></li>
+        <li style={styles.listItem}><a href="#navigating-documentation" style={styles.link}>Deployment</a></li>
+        <li style={styles.listItem}><a href="#platform-components" style={styles.link}>Security</a></li>
+        <li style={styles.listItem}><a href="#user-guides" style={styles.link}>Compliance</a></li>
+        <li style={styles.listHeader}><a href="#what-is-our-platform" style={styles.link}>IV. Support</a></li>
+        <li style={styles.listItem}><a href="#what-is-our-platform" style={styles.link}>FAQ</a></li>
+        <li style={styles.listItem}><a href="#navigating-documentation" style={styles.link}>Contact</a></li>
+        <li style={styles.listItem}><a href="#platform-components" style={styles.link}>Resources</a></li>
       </ul>
     </div>
   );
@@ -33,7 +42,7 @@ const styles = {
     overflowY: 'auto',
   },
   heading: {
-    marginTop: 0,
+    marginTop: '25.0px',
     color: '#333',
     marginBottom: '20px',
   },

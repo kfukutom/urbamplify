@@ -2,23 +2,28 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SocialLogin from "../components/SocialLogin";
 import InputField from "../components/InputField";
-import { signInWithEmailAndPassword, onAuthStateChanged, getIdToken } from "firebase/auth";
-import { auth, resetPassword as firebaseResetPassword } from "../../backend/firebase-config/firebaseConfig"
-import { SyncLoader } from 'react-spinners';
-import axios from 'axios';
+import {
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  getIdToken,
+} from "firebase/auth";
+import { auth, resetPassword as firebaseResetPassword } from "../../backend/firebase-config/firebaseConfig";
+import { SyncLoader } from "react-spinners";
+import axios from "axios";
 import "../screen-styles/Auth.css";
 
 const Auth = ({ isDark }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [popupMsg, setMsg] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [popupMsg, setMsg] = useState("");
   const [shake, setShake] = useState(false);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  // Handle user session state
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, user => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log("User is logged in as ", user, new Date().toLocaleTimeString());
         navigate("/dashboard");
@@ -30,38 +35,44 @@ const Auth = ({ isDark }) => {
     return () => unsubscribe();
   }, [navigate]);
 
+  // Secure Session Management: Handle user login
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const idToken = await getIdToken(userCredential.user);
-      
-      // Generate CSRF token (using firebase-config/backend)
+
+      // Generate CSRF token
       const csrfToken = Math.random().toString(36).slice(2);
       document.cookie = `csrfToken=${csrfToken}; path=/; secure; samesite=strict`;
+      console.log("CSRF token generated:", csrfToken);
+      console.log("ID token generated:", idToken);
+      console.log("Logging in at ", new Date().toLocaleTimeString());
 
-      const response = await axios.post('/sessionLogin', {
-        idToken: idToken,
-        csrfToken: csrfToken
-      }, {
-        withCredentials: true
-      });
+      // Call Express backend for session login
+      const response = await axios.post(
+        "/sessionLogin",
+        { idToken, csrfToken },
+        { withCredentials: true }
+      );
 
-      if (response.data.status === 'success') {
+      if (response.data.status === "success") {
         navigate("/dashboard");
         console.log("Logged in successfully at ", new Date().toLocaleTimeString());
       } else {
-        throw new Error('Session creation failed');
+        throw new Error("Session creation failed");
+        console.log("Session creation failed at ", new Date().toLocaleTimeString());
       }
     } catch (err) {
       setError("Failed to log in. Please check your credentials.");
-      console.error(err);
+      console.error("Login error:", err);
     }
     setLoading(false);
     setTimeout(() => setShake(false), 500);
   };
 
+  // Handle password reset
   const handleResetPassword = async () => {
     if (!email) {
       setError("Please enter your email to reset your password.");
@@ -90,30 +101,35 @@ const Auth = ({ isDark }) => {
   }
 
   return (
-    <div className={`login-container ${loading ? 'no-shadow' : ''}`} data-theme={isDark ? 'dark' : 'light'}>
+    <div
+      className={`login-container ${loading ? "no-shadow" : ""}`}
+      data-theme={isDark ? "dark" : "light"}
+    >
       <h2 className="form-title">
-        urb<span style={{ color: '#333fff', fontWeight: 'bold' }}>amplify&nbsp;</span>
+        urb<span style={{ color: "#333fff", fontWeight: "bold" }}>amplify&nbsp;</span>
         <span style={{ fontSize: 12 }}>v1.2.2</span>
       </h2>
       <SocialLogin />
 
-      <p className="separator"><span>or</span></p>
+      <p className="separator">
+        <span>or</span>
+      </p>
 
       <form onSubmit={handleLogin} className="login-form">
         <InputField
           type="email"
           placeholder="Email address"
           icon="mail"
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <InputField
           type="password"
           placeholder="Password"
           icon="lock"
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
-        {error && <p className={`error-message ${shake ? 'shake' : ''}`}>{error}</p>}
+        {error && <p className={`error-message ${shake ? "shake" : ""}`}>{error}</p>}
         {popupMsg && <p className="popup-message">{popupMsg}</p>}
 
         <a href="#" className="forgot-password-link" onClick={handleResetPassword}>
@@ -126,15 +142,19 @@ const Auth = ({ isDark }) => {
         Don't have an account? <a href="#" className="signup-link">Sign up 🚀</a>
       </p>
       <p>
-        <a style={{
-          color: '#808080',
-          fontSize: 10,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: 10,
-          cursor: 'auto',
-        }}>Developed by Ken Fukutomi, 2024</a>
+        <a
+          style={{
+            color: "#808080",
+            fontSize: 10,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 10,
+            cursor: "auto",
+          }}
+        >
+          Developed by Ken Fukutomi, 2024
+        </a>
       </p>
     </div>
   );
@@ -142,12 +162,12 @@ const Auth = ({ isDark }) => {
 
 const styles = {
   loadingContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    width: '100vw',
-  }
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    width: "100vw",
+  },
 };
 
 export default Auth;
